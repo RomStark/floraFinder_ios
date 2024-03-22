@@ -1,0 +1,6 @@
+framework module DeclarativeLayoutKit {
+  umbrella header "DeclarativeLayoutKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
