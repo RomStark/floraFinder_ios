@@ -1,0 +1,64 @@
+PODS:
+  - Alamofire (5.9.0)
+  - DeclarativeLayoutKit (3.0.3)
+  - Differentiator (5.0.0)
+  - FunctionalNavigationFlowKit (0.0.6)
+  - Kingfisher (7.11.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
+  - RxCocoa (6.6.0):
+    - RxRelay (= 6.6.0)
+    - RxSwift (= 6.6.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.6.0):
+    - RxSwift (= 6.6.0)
+  - RxSwift (6.6.0)
+  - SwiftRichString (3.7.2)
+
+DEPENDENCIES:
+  - DeclarativeLayoutKit
+  - FunctionalNavigationFlowKit
+  - Kingfisher
+  - Moya/RxSwift
+  - RxCocoa
+  - RxDataSources
+  - RxRelay
+  - RxSwift
+  - SwiftRichString
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - DeclarativeLayoutKit
+    - Differentiator
+    - FunctionalNavigationFlowKit
+    - Kingfisher
+    - Moya
+    - RxCocoa
+    - RxDataSources
+    - RxRelay
+    - RxSwift
+    - SwiftRichString
+
+SPEC CHECKSUMS:
+  Alamofire: 02b772c9910e8eba1a079227c32fbd9e46c90a24
+  DeclarativeLayoutKit: 6c8af20e78cb72bf67bb8b00ca72c2577d2ce2c5
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
+  FunctionalNavigationFlowKit: a085ca6e12c6ba8585a63f0b83bb12f51e4f1c8d
+  Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
+  RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
+  SwiftRichString: d61b807db1f8834c26fee92b6dd3e1be2dc5af03
+
+PODFILE CHECKSUM: 2ebc0910c6b0204bac09236cec6cf20e3906a42a
+
+COCOAPODS: 1.14.3

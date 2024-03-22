@@ -1,0 +1,6 @@
+framework module Pods_floraFinder {
+  umbrella header "Pods-floraFinder-umbrella.h"
+
+  export *
+  module * { export * }
+}

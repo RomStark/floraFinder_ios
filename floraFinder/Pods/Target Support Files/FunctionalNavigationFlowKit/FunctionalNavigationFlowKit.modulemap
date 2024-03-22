@@ -1,0 +1,6 @@
+framework module FunctionalNavigationFlowKit {
+  umbrella header "FunctionalNavigationFlowKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
