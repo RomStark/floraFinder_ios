@@ -10,6 +10,7 @@ import RxSwift
 public protocol MainService {
     func getAllPlants() -> Single<[Plant]>
     func getAllUserPlants() -> Single<[UserPlant]>
+    func updatePlant(model: UpdatePlantDTO, id: String) -> Completable
 }
 
 public struct MainServiceImpl: MainService {
@@ -21,7 +22,9 @@ public struct MainServiceImpl: MainService {
         networkClient.requestModel(endpoint: .Main.allPlants())
     }
     
-    
+    public func updatePlant(model: UpdatePlantDTO, id: String) -> Completable {
+        networkClient.requestCompletable(endpoint: .User.updatePlant(model: model, id: id))
+    }
     
     private let networkClient: NetworkClient
     

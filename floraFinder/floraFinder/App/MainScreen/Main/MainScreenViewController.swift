@@ -97,6 +97,8 @@ private extension MainScreenViewController {
                         .axis(.horizontal)
                         .spacing(20)
                         .append({
+                            UIView()
+                                .sizeAnchor(20)
                             UIButton()
                                 .backgroundColor(.red)
                                 .sizeAnchor(24)
@@ -111,6 +113,8 @@ private extension MainScreenViewController {
                                 .backgroundColor(.red)
                                 .sizeAnchor(24)
                                 .activate()
+                            UIView()
+                                .sizeAnchor(20)
                         })
                         
                     collectionView

@@ -56,10 +56,12 @@ public final class PlantDetailViewModel: FlowController {
             humidity: plant.humidity,
             water_interval: plant.water_interval,
             lighting: plant.lighting,
-            imageURL: plant.imageURL
+            imageURL: plant.imageURL,
+            last_watering: Int(Date(timeIntervalSinceNow: 0).timeIntervalSince1970)
         )
-        service.addPlant(model: model).subscribe(onCompleted: { [weak self] in
+        service.addPlant(model: model).subscribe(onSuccess: { [weak self] userPlant in
             self?.onAdd()
+            NotificationsService.createWateringNotification(identifier: userPlant.id, plant: userPlant.givenName, triggerTime: userPlant.water_interval)
         })
         .disposed(by: disposeBag)
     }

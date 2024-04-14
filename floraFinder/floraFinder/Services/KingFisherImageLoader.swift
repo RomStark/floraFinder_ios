@@ -23,7 +23,7 @@ public struct KingfisherImageLoader {
                 case .success(let value):
                     observer(.success(value.image))
                 case .failure(let error):
-                    observer(.failure(error))
+                    observer(.success(UIImage(named: "not-image")))
                 }
             })
             return Disposables.create()

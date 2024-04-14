@@ -17,7 +17,9 @@ public extension UIColor {
     
     static var cellBackGround: UIColor { UIColor(hex: "E0FA71") }
     
+    static var border: UIColor { UIColor(hex: "faf7f7") }
     
+    static var shadow: UIColor { UIColor(hex: "ede8e8") }
 }
 
 public extension UIColor {

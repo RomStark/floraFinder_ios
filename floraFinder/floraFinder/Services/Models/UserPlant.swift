@@ -23,6 +23,7 @@ public struct UserPlant: Identifiable, Decodable {
     public let maxT: Int
     public let humidity: Int
     public let water_interval: Int
+    public let last_watering: Int
     public let lighting: String
     
     enum CodingKeys: String, CodingKey {
@@ -34,6 +35,7 @@ public struct UserPlant: Identifiable, Decodable {
         case maxT
         case humidity
         case water_interval
+        case last_watering
         case lighting
         case givenName
     }

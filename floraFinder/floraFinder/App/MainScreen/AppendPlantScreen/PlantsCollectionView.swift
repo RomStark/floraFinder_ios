@@ -62,7 +62,10 @@ class PlantCell: CommonInitCollectionViewCell {
                         UIImageView()
                             .assign(to: &mainImageView)
                             .clipsToBounds(true)
-                            .cornerRadius(4)
+                            .contentMode(.scaleAspectFill)
+                            .cornerRadius(12)
+                            .borderWidth(2)
+                            .borderColor(.border)
                             .heightAnchor(100)
                         UILabel()
                             .assign(to: &nameLabel);
@@ -70,8 +73,8 @@ class PlantCell: CommonInitCollectionViewCell {
                             .assign(to: &dayCountLabel)
                     }
                     .spacing(8)
-                    .verticalAnchor(5)
-                    .horizontalAnchor(5)
+                    .verticalAnchor(8)
+                    .horizontalAnchor(8)
                     
                 UIButton()
                     .assign(to: &button)
@@ -80,7 +83,7 @@ class PlantCell: CommonInitCollectionViewCell {
             .backgroundColor(.cellBackGround)
             .borderWidth(0.5)
             .borderColor(.white)
-            .cornerRadius(8)
+            .cornerRadius(12)
     }
     
     public func configure(with model: PlantCellViewModel) -> Disposable {

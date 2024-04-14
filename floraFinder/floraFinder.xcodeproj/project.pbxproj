@@ -63,6 +63,7 @@
 		0053B1492BAD5DF000611FE2 /* AllPlantsComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053B1482BAD5DF000611FE2 /* AllPlantsComposer.swift */; };
 		0053B14B2BAD5EF500611FE2 /* PlantDetailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053B14A2BAD5EF500611FE2 /* PlantDetailComposer.swift */; };
 		0053B14D2BAD5F9300611FE2 /* PlantDetailFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053B14C2BAD5F9300611FE2 /* PlantDetailFlow.swift */; };
+		00760BD42BCC510700D3E879 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00760BD32BCC510700D3E879 /* NotificationsService.swift */; };
 		7A56899F5F451674F84E66E5 /* Pods_floraFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA75633133E33B5161CBF69A /* Pods_floraFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +126,7 @@
 		0053B1482BAD5DF000611FE2 /* AllPlantsComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPlantsComposer.swift; sourceTree = "<group>"; };
 		0053B14A2BAD5EF500611FE2 /* PlantDetailComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailComposer.swift; sourceTree = "<group>"; };
 		0053B14C2BAD5F9300611FE2 /* PlantDetailFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailFlow.swift; sourceTree = "<group>"; };
+		00760BD32BCC510700D3E879 /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
 		14C07756A604CDEF6FD21801 /* Pods-floraFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-floraFinder.debug.xcconfig"; path = "Target Support Files/Pods-floraFinder/Pods-floraFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		614520C343032E32A3D0245F /* Pods-floraFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-floraFinder.release.xcconfig"; path = "Target Support Files/Pods-floraFinder/Pods-floraFinder.release.xcconfig"; sourceTree = "<group>"; };
 		BA75633133E33B5161CBF69A /* Pods_floraFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_floraFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +200,7 @@
 		0053B0DD2BAAFE3D00611FE2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				00760BD32BCC510700D3E879 /* NotificationsService.swift */,
 				0053B0E02BAAFF2800611FE2 /* Models */,
 				0053B0DE2BAAFE4D00611FE2 /* UserService.swift */,
 				0053B1102BAC3D0300611FE2 /* MainService.swift */,
@@ -507,6 +510,7 @@
 				0053B13B2BACBBD500611FE2 /* SignInScreenViewModel.swift in Sources */,
 				0053B1472BAD5DC300611FE2 /* AllPlantsFlow.swift in Sources */,
 				0053B0C02BAADEDB00611FE2 /* AppDelegate.swift in Sources */,
+				00760BD42BCC510700D3E879 /* NotificationsService.swift in Sources */,
 				0053B14D2BAD5F9300611FE2 /* PlantDetailFlow.swift in Sources */,
 				0053B1322BACB82900611FE2 /* PlantsCollectionView.swift in Sources */,
 				0053B1152BAC415200611FE2 /* Services.swift in Sources */,

@@ -40,7 +40,6 @@ public final class PlantDetailViewController: ViewController {
             
             bindings.image.drive(mainImage.rx.image),
             addButton.rx.tap.bind(to: bindings.addPlant)
-            
         ]
     }
     

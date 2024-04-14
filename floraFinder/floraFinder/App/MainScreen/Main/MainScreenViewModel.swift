@@ -45,7 +45,11 @@ public final class MainScreenViewModel: FlowController {
                         imageLoader: self.imageLoader,
                         onTap: { [weak self] in
                             self?.onTapCell(plant)
-                        })
+                        },
+                        onTapWatering: { [weak self] in
+                            self?.onTapWatering(plant)
+                        }
+                    )
                 }
                 
                 self.newsSectionRelay.accept([
@@ -57,6 +61,24 @@ public final class MainScreenViewModel: FlowController {
     
     func onTapCell(_ model: UserPlant) {
         complete(.plantInfo(model))
+    }
+    func onTapWatering(_ model: UserPlant) {
+        let plant = UpdatePlantDTO(
+            givenName: model.givenName,
+            name: model.name,
+            description: model.description,
+            minT: model.minT,
+            maxT: model.maxT,
+            humidity: model.humidity,
+            water_interval: model.water_interval,
+            lighting: model.lighting,
+            imageURL: model.imageURL,
+            last_watering: Int(Date(timeIntervalSinceNow: 0).timeIntervalSince1970)
+        )
+        service.updatePlant(model: plant, id: model.id).subscribe(onCompleted: { [weak self] in
+//            self?.onAdd()
+        })
+        .disposed(by: disposeBag)
     }
 }
 

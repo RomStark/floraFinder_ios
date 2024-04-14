@@ -14,7 +14,8 @@ public protocol UserService {
     func login(login: String, password: String) -> Completable
     func signIn(login: String, password: String, name: String) -> Completable
     func logout() -> Completable
-    func addPlant(model: AddPlantDTO) -> Completable
+    func addPlant(model: AddPlantDTO) -> Single<UserPlant>
+    func updatePlant(model: UpdatePlantDTO, id: String) -> Completable
 }
 
 public struct UserServiceImpl: UserService {
@@ -46,9 +47,12 @@ public struct UserServiceImpl: UserService {
             .asCompletable()
     }
     
-    public func addPlant(model: AddPlantDTO) -> Completable {
-        networkClient.request(endpoint: .User.addPlant(model: model))
-            .asCompletable()
+    public func addPlant(model: AddPlantDTO) -> Single<UserPlant> {
+        networkClient.requestModel(endpoint: .User.addPlant(model: model))
+    }
+    
+    public func updatePlant(model: UpdatePlantDTO, id: String) -> Completable {
+        networkClient.requestCompletable(endpoint: .User.updatePlant(model: model, id: id))
     }
     
     public func logout() -> Completable {

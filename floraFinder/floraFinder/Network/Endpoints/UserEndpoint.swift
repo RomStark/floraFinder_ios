@@ -42,6 +42,16 @@ public extension NetworkEndpoint {
             )
         }
         
+        public static func updatePlant(model: UpdatePlantDTO, id: String) -> NetworkEndpoint {
+            let data = try? asDictionary(model: model)
+            return NetworkEndpoint(
+                method: .put,
+                path: "users/plants/\(id)",
+                isAuthorizationRequired: true,
+                task: .formData(data ?? [:])
+            )
+        }
+        
         public static func logout() -> NetworkEndpoint {
             NetworkEndpoint(
                 method: .get,
@@ -63,6 +73,20 @@ public struct AddPlantDTO: Codable {
     public var water_interval: Int
     public var lighting: String
     public var imageURL: String?
+    public var last_watering: Int
+}
+
+public struct UpdatePlantDTO: Codable {
+    public var givenName: String
+    public var name: String
+    public var description: String
+    public var minT: Int
+    public var maxT: Int
+    public var humidity: Int
+    public var water_interval: Int
+    public var lighting: String
+    public var imageURL: String?
+    public var last_watering: Int
 }
 
 public func asDictionary(model: Codable) throws -> [String: Any?]? {
