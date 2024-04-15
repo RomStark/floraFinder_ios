@@ -31,21 +31,9 @@ final class AppDependencies {
  
     }
     
-   
-    
-    
-    
-    
-    
-
-    
     func setOnLogout(_ logout: @escaping () -> Void) {
         self.logout = logout
     }
-    
-    
-    
-    
 }
 
 

@@ -52,14 +52,20 @@ public extension NetworkEndpoint {
             )
         }
         
+        public static func wateringPlantById(id: String) -> NetworkEndpoint {
+            return NetworkEndpoint(
+                method: .get,
+                path: "users/plants/watering/\(id)",
+                isAuthorizationRequired: true
+            )
+        }
+        
         public static func logout() -> NetworkEndpoint {
             NetworkEndpoint(
                 method: .get,
                 path: "/auth/logout"
             )
         }
-        
-        
     }
 }
 

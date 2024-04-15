@@ -25,9 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window: window,
             appDependencies: appDependencies
         )
-        let wateringAction = UNNotificationAction(identifier: "wateringAction", title: "Полить", options: [])
-        let category = UNNotificationCategory(identifier: "plantActions", actions: [wateringAction], intentIdentifiers: [], options: [])
         
+        let wateringAction = UNNotificationAction(identifier: "wateringAction", title: "Полить", options: [])
+        let category = UNNotificationCategory(identifier: "plantactions", actions: [wateringAction], intentIdentifiers: [], options: [])
+        notificationsCenter.removeAllDeliveredNotifications()
+        notificationsCenter.removeAllPendingNotificationRequests()
         notificationsCenter.setNotificationCategories([category])
         notificationsCenter.delegate = self
         notificationsCenter.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
@@ -52,13 +54,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let notification = response.notification
         let userInfo = notification.request.content.userInfo
-        print(response.actionIdentifier.description)
-        print(notification.request.identifier)
         if response.actionIdentifier == "wateringAction" {
-            // Получение id растения из userInfo и выполнение соответствующих действий по поливу
             if let plantID = userInfo["plantID"] as? String {
-                // Здесь можно использовать plantID для выполнения действий по поливу растения
-                print("Полив растения с id \(plantID)")
+                appDependencies.userService.wateringPlantBy(id: plantID).subscribe(onDisposed:  {
+                    NotificationsService.sendSuccessNotification(for: plantID)
+                }).dispose()
             }
         }
         
