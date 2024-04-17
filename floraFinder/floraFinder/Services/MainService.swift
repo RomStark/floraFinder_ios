@@ -8,7 +8,7 @@
 import RxSwift
 
 public protocol MainService {
-    func getAllPlants() -> Single<[Plant]>
+    func getAllPlants(query: String) -> Single<[Plant]>
     func getAllUserPlants() -> Single<[UserPlant]>
     func updatePlant(model: UpdatePlantDTO, id: String) -> Completable
 }
@@ -18,8 +18,8 @@ public struct MainServiceImpl: MainService {
         networkClient.requestModel(endpoint: .Main.allUserPlants())
     }
     
-    public func getAllPlants() -> RxSwift.Single<[Plant]> {
-        networkClient.requestModel(endpoint: .Main.allPlants())
+    public func getAllPlants(query: String = "") -> RxSwift.Single<[Plant]> {
+        networkClient.requestModel(endpoint: .Main.allPlants(query: query))
     }
     
     public func updatePlant(model: UpdatePlantDTO, id: String) -> Completable {

@@ -7,7 +7,7 @@
 
 import FunctionalNavigationFlowKit
 
-protocol AllPlantsDependencies: ImageLoadingDependencies  {
+protocol AllPlantsDependencies: ImageLoadingDependencies, CameraDependencies  {
     var mainService: MainService { get }
     var userService: UserService { get }
 }
@@ -17,6 +17,7 @@ struct AllPlantsFlowDependencies {
     let plantInfoFlow: (Plant) -> ()
 //
 //    let allPlantFlow: Flow
+    let openCamera: () -> ()
 }
 
 
@@ -30,6 +31,8 @@ enum AllPlantsComposer {
             switch $0 {
             case let .plantInfo(plant):
                 flowDependencies.plantInfoFlow(plant)
+            case .openCamera:
+                flowDependencies.openCamera()
 //            case let .plantInfo(model):
 //                flowDependencies.plantInfoFlow(model)
 //            case .allPlants:

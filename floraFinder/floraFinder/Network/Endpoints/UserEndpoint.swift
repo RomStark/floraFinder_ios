@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Moya
 
 
 public extension NetworkEndpoint {
@@ -60,10 +61,28 @@ public extension NetworkEndpoint {
             )
         }
         
+        public static func getName(id: String) -> NetworkEndpoint {
+            return NetworkEndpoint(
+                method: .get,
+                path: "users/plants/watering/\(id)",
+                isAuthorizationRequired: true
+            )
+        }
+        
         public static func logout() -> NetworkEndpoint {
             NetworkEndpoint(
                 method: .get,
                 path: "/auth/logout"
+            )
+        }
+        
+        public static func sendImage(data: Data) -> NetworkEndpoint {
+            NetworkEndpoint(
+                method: .post,
+                path: "/predict",
+                isAuthorizationRequired: false,
+                task: .multipart([.data(data, name: "image", fileName: "image.jpg", mimeType: "image/jpeg")]),
+                baseURL: URL(string: "http://127.0.0.1:8000")!
             )
         }
     }

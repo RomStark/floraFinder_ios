@@ -17,6 +17,8 @@ public protocol UserService {
     func addPlant(model: AddPlantDTO) -> Single<UserPlant>
     func updatePlant(model: UpdatePlantDTO, id: String) -> Completable
     func wateringPlantBy(id: String) -> Completable
+    func sendImage(data: Data) -> Single<ImageResponse>
+    func getAllPlants(query: String) -> Single<[Plant]>
 }
 
 public struct UserServiceImpl: UserService {
@@ -27,6 +29,14 @@ public struct UserServiceImpl: UserService {
         networkClient: NetworkClient
     ) {
         self.networkClient = networkClient
+    }
+    
+    public func getAllPlants(query: String = "") -> RxSwift.Single<[Plant]> {
+        networkClient.requestModel(endpoint: .Main.allPlants(query: query))
+    }
+    
+    public func sendImage(data: Data) -> Single<ImageResponse> {
+        networkClient.requestModel(endpoint: .User.sendImage(data: data))
     }
     
     public func login(

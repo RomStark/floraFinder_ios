@@ -13,11 +13,16 @@ import RxCocoa
 
 public protocol PlantsListViewControllerBindings {
     var plantsCells: Driver<[PlantSectionModel]> { get }
+//    var searchQuery: Driver<String> { get }
+    var searchQuery: Binder<String> { get }
+    var tapCamera: Binder<Void> { get }
 }
 
 public final class PlantsListViewController: ViewController {
     private weak var label: UILabel!
     private weak var collection: UICollectionView!
+    private weak var searchBar: UISearchBar!
+    private weak var button: UIButton!
     
     public override func loadView() {
         view = mainView()
@@ -25,7 +30,9 @@ public final class PlantsListViewController: ViewController {
     
     public func bind(to bindings: PlantsListViewControllerBindings) -> Disposable {
         return [
-            bindings.plantsCells.drive(collection.rx.items(dataSource: dataSource()))
+            bindings.plantsCells.drive(collection.rx.items(dataSource: dataSource())),
+            searchBar.rx.text.orEmpty.distinctUntilChanged().bind(to: bindings.searchQuery),
+            button.rx.tap.bind(to: bindings.tapCamera)
         ]
     }
 
@@ -92,6 +99,10 @@ private extension PlantsListViewController {
                         .assign(to: &label)
                         .set(fontStyle: .color(.black), .center)
                         .styledText("Мой Сад")
+                    UISearchBar()
+                        .backgroundColor(.secondaryBackGround)
+                        .tintColor(.secondaryBackGround)
+                        .assign(to: &searchBar)
                     collectionView
                 }
                 .spacing(30)
@@ -99,6 +110,13 @@ private extension PlantsListViewController {
                 .topAnchor(50)
                 .horizontalAnchor(0)
                 .bottomAnchor(0)
+            
+            UIButton()
+                .assign(to: &button)
+                .backgroundColor(.black)
+                .horizontalAnchor(0)
+                .bottomAnchor(300)
+                .sizeAnchor(40)
         }
     }
 }

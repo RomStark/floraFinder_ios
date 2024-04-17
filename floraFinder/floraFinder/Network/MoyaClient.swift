@@ -61,7 +61,7 @@ public final class MoyaApiClient: NSObject, NetworkClient {
     
     private func target(endpoint: NetworkEndpoint) -> MoyaTarget {
         MoyaTarget(
-            baseURL: baseUrl,
+            baseURL: endpoint.baseURL,
             path: endpoint.path,
             method: endpoint.method.toMoyaMethod(),
             task: endpoint.task?.toMoyaTask() ?? Task.requestPlain,
@@ -135,7 +135,31 @@ private extension NetworkEndpoint.Task {
             return .requestParameters(parameters: fields.compactMapValues({ $0 }), encoding: JSONEncoding.default)
         case let .query(params):
             return .requestParameters(parameters: params.compactMapValues({ $0 }), encoding: URLEncoding.queryString)
+        case .multipart(let multipart):
+            return .uploadMultipart(multipart.map(\.toMoyaMultipartFormData))
         }
+    }
+}
+private extension NetworkEndpoint.Task.Multipart.Provider {
+    func toMoyaMultipartProvider() -> Moya.MultipartFormData.FormDataProvider {
+        switch self {
+        case .data(let data):
+            return .data(data)
+        case .file(let url):
+            return .file(url)
+        case .stream(let inputStream, let bytes):
+            return .stream(inputStream, bytes)
+        }
+    }
+}
+private extension NetworkEndpoint.Task.Multipart {
+    var toMoyaMultipartFormData: Moya.MultipartFormData {
+        MultipartFormData(
+            provider: provider.toMoyaMultipartProvider(),
+            name: name,
+            fileName: fileName,
+            mimeType: mimeType
+        )
     }
 }
 

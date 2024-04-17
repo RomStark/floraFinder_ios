@@ -24,6 +24,8 @@ public protocol UserPlantDetailViewControllerBindings {
 
 public final class UserPlantDetailViewController: ViewController {
     private weak var mainImage: UIImageView!
+    private weak var nameLabel: UILabel!
+    private weak var descriptionLabel: UILabel!
 //    private weak var nameLabel: UILabel!
 //    private weak var givenNameLabel: UILabel!
 //    private weak var descriptionLabel: UILabel!
@@ -41,12 +43,14 @@ public final class UserPlantDetailViewController: ViewController {
     }
     
     public func bind(to bindings: UserPlantDetailViewControllerBindings) -> Disposable {
+        nameLabel.styledText("название")
+        descriptionLabel.styledText("описание: тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание")
         return [
-            bindings.infoCells.map({ [unowned self] plants in
-                plants.map { plant in
-                    self.makeSettingsCell(with: plant)
-                }
-            }).drive(settingsInfoStack.rx.views),
+//            bindings.infoCells.map({ [unowned self] plants in
+//                plants.map { plant in
+//                    self.makeSettingsCell(with: plant)
+//                }
+//            }).drive(settingsInfoStack.rx.views),
             
             bindings.image.drive(mainImage.rx.image)
             
@@ -69,13 +73,27 @@ private extension UserPlantDetailViewController {
         
         
         return mainView.add {
+            
+            UILabel()
+                .assign(to: &nameLabel)
+                .set(fontStyle: .size(.medium))
+                .centerXAnchor(0)
+                .topAnchor(15.from(mainView.safeAreaLayoutGuide.topAnchor))
+            
             UIImageView()
                 .assign(to: &mainImage)
                 .clipsToBounds(true)
                 .cornerRadius(15)
                 .horizontalAnchor(20)
-                .topAnchor(30.from(mainView.safeAreaLayoutGuide.topAnchor))
+                .topAnchor(10.from(nameLabel.bottomAnchor))
                 .heightAnchor(200)
+            
+            UILabel()
+                .assign(to: &descriptionLabel)
+                .numberOfLines(0)
+                .set(fontStyle: .size(.medium))
+                .topAnchor(20.from(mainImage.bottomAnchor))
+                .horizontalAnchor(20)
             
             
             UIStackView()

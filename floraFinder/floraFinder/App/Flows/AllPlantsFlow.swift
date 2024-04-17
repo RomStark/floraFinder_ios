@@ -25,6 +25,9 @@ func AllPlantsFlow(
                         plant: plant,
                         onAdd: onAdd
                     )()
+                },
+                openCamera: {
+                    CameraFlow(in: navigationController, dependencies: dependencies)()
                 }
             )
         )

@@ -11,11 +11,11 @@ public extension UIColor {
     /// (#111111) Черный  текст
     static var primaryText: UIColor { UIColor(hex: "111111") }
     
-    static var mainBackGround: UIColor { UIColor(hex: "00AE68") }
+    static var mainBackGround: UIColor { UIColor(hex: "c7f2d8") }
     
     static var secondaryBackGround: UIColor { UIColor(hex: "60D6A7") }
     
-    static var cellBackGround: UIColor { UIColor(hex: "E0FA71") }
+    static var cellBackGround: UIColor { UIColor(hex: "72a892") }
     
     static var border: UIColor { UIColor(hex: "faf7f7") }
     

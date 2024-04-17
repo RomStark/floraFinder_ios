@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003CF2372BCD9F820025B6C4 /* PlantByPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2362BCD9F820025B6C4 /* PlantByPhotoViewController.swift */; };
+		003CF2392BCD9F920025B6C4 /* PlantByPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2382BCD9F920025B6C4 /* PlantByPhotoViewModel.swift */; };
+		003CF23B2BCDB16E0025B6C4 /* CameraFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF23A2BCDB16E0025B6C4 /* CameraFlow.swift */; };
+		003CF23D2BCDB18E0025B6C4 /* CameraComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF23C2BCDB18E0025B6C4 /* CameraComposer.swift */; };
+		003CF24B2BCE081A0025B6C4 /* modelForPlant.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 003CF24A2BCE081A0025B6C4 /* modelForPlant.mlpackage */; };
+		003CF24D2BCF5E870025B6C4 /* OpenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF24C2BCF5E870025B6C4 /* OpenImageViewController.swift */; };
+		003CF24F2BCF5E930025B6C4 /* OpenImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF24E2BCF5E930025B6C4 /* OpenImageViewModel.swift */; };
+		003CF2512BCF60200025B6C4 /* OpenImageFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2502BCF60200025B6C4 /* OpenImageFlow.swift */; };
+		003CF2532BCF603A0025B6C4 /* OpenImageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2522BCF603A0025B6C4 /* OpenImageComposer.swift */; };
+		003CF2552BCF71FA0025B6C4 /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2542BCF71FA0025B6C4 /* ImageResponse.swift */; };
+		003CF2572BCFACF50025B6C4 /* FindedPlantInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2562BCFACF50025B6C4 /* FindedPlantInfoViewModel.swift */; };
+		003CF2592BCFAD060025B6C4 /* FindedPlantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2582BCFAD060025B6C4 /* FindedPlantInfoViewController.swift */; };
 		0053B0C02BAADEDB00611FE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053B0BF2BAADEDB00611FE2 /* AppDelegate.swift */; };
 		0053B0C92BAADEE100611FE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0053B0C82BAADEE100611FE2 /* Assets.xcassets */; };
 		0053B0CC2BAADEE100611FE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0053B0CA2BAADEE100611FE2 /* LaunchScreen.storyboard */; };
@@ -68,6 +80,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		003CF2362BCD9F820025B6C4 /* PlantByPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantByPhotoViewController.swift; sourceTree = "<group>"; };
+		003CF2382BCD9F920025B6C4 /* PlantByPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantByPhotoViewModel.swift; sourceTree = "<group>"; };
+		003CF23A2BCDB16E0025B6C4 /* CameraFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFlow.swift; sourceTree = "<group>"; };
+		003CF23C2BCDB18E0025B6C4 /* CameraComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraComposer.swift; sourceTree = "<group>"; };
+		003CF24A2BCE081A0025B6C4 /* modelForPlant.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = modelForPlant.mlpackage; path = ../../../../modelForPlant.mlpackage; sourceTree = "<group>"; };
+		003CF24C2BCF5E870025B6C4 /* OpenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenImageViewController.swift; sourceTree = "<group>"; };
+		003CF24E2BCF5E930025B6C4 /* OpenImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenImageViewModel.swift; sourceTree = "<group>"; };
+		003CF2502BCF60200025B6C4 /* OpenImageFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenImageFlow.swift; sourceTree = "<group>"; };
+		003CF2522BCF603A0025B6C4 /* OpenImageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenImageComposer.swift; sourceTree = "<group>"; };
+		003CF2542BCF71FA0025B6C4 /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
+		003CF2562BCFACF50025B6C4 /* FindedPlantInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindedPlantInfoViewModel.swift; sourceTree = "<group>"; };
+		003CF2582BCFAD060025B6C4 /* FindedPlantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindedPlantInfoViewController.swift; sourceTree = "<group>"; };
 		0053B0BC2BAADEDB00611FE2 /* floraFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = floraFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0053B0BF2BAADEDB00611FE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0053B0C82BAADEE100611FE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,6 +168,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		003CF2352BCD9F5D0025B6C4 /* AppendByPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				003CF2362BCD9F820025B6C4 /* PlantByPhotoViewController.swift */,
+				003CF2382BCD9F920025B6C4 /* PlantByPhotoViewModel.swift */,
+				003CF24C2BCF5E870025B6C4 /* OpenImageViewController.swift */,
+				003CF24E2BCF5E930025B6C4 /* OpenImageViewModel.swift */,
+				003CF2562BCFACF50025B6C4 /* FindedPlantInfoViewModel.swift */,
+				003CF2582BCFAD060025B6C4 /* FindedPlantInfoViewController.swift */,
+			);
+			path = AppendByPhoto;
+			sourceTree = "<group>";
+		};
 		0053B0B32BAADEDB00611FE2 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +202,7 @@
 		0053B0BE2BAADEDB00611FE2 /* floraFinder */ = {
 			isa = PBXGroup;
 			children = (
+				003CF24A2BCE081A0025B6C4 /* modelForPlant.mlpackage */,
 				0053B0D32BAAF8F600611FE2 /* Network */,
 				0053B0F22BAB8DC900611FE2 /* UIComponents */,
 				0053B0E72BAB24CC00611FE2 /* Helpers */,
@@ -216,6 +254,7 @@
 				0053B0E12BAAFF3600611FE2 /* UserModel.swift */,
 				0053B10E2BAC35EA00611FE2 /* Plant.swift */,
 				0053B1332BACBB2B00611FE2 /* UserPlant.swift */,
+				003CF2542BCF71FA0025B6C4 /* ImageResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +283,8 @@
 				0053B1422BAD14F200611FE2 /* LoginFlow.swift */,
 				0053B1462BAD5DC300611FE2 /* AllPlantsFlow.swift */,
 				0053B14C2BAD5F9300611FE2 /* PlantDetailFlow.swift */,
+				003CF23A2BCDB16E0025B6C4 /* CameraFlow.swift */,
+				003CF2502BCF60200025B6C4 /* OpenImageFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -290,6 +331,8 @@
 				0053B1442BAD152800611FE2 /* LoginComposer.swift */,
 				0053B1482BAD5DF000611FE2 /* AllPlantsComposer.swift */,
 				0053B14A2BAD5EF500611FE2 /* PlantDetailComposer.swift */,
+				003CF23C2BCDB18E0025B6C4 /* CameraComposer.swift */,
+				003CF2522BCF603A0025B6C4 /* OpenImageComposer.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -297,6 +340,7 @@
 		0053B1022BAC1D0200611FE2 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				003CF2352BCD9F5D0025B6C4 /* AppendByPhoto */,
 				0053B1282BACB66E00611FE2 /* AppendPlantScreen */,
 				0053B11C2BAC5D2C00611FE2 /* UserPlantDetailScreen */,
 				0053B1052BAC1D2E00611FE2 /* Main */,
@@ -487,15 +531,22 @@
 				0053B1042BAC1D1200611FE2 /* MainScreenViewModel.swift in Sources */,
 				0053B1012BAC1CAD00611FE2 /* MainScreenComposer.swift in Sources */,
 				0053B1172BAC477600611FE2 /* KingFisherImageLoader.swift in Sources */,
+				003CF23D2BCDB18E0025B6C4 /* CameraComposer.swift in Sources */,
+				003CF24F2BCF5E930025B6C4 /* OpenImageViewModel.swift in Sources */,
 				0053B0EB2BAB320A00611FE2 /* AppDependencies.swift in Sources */,
+				003CF24D2BCF5E870025B6C4 /* OpenImageViewController.swift in Sources */,
 				0053B1072BAC1D6B00611FE2 /* FlowController.swift in Sources */,
 				0053B1092BAC1F8300611FE2 /* MainScreenViewController.swift in Sources */,
+				003CF24B2BCE081A0025B6C4 /* modelForPlant.mlpackage in Sources */,
+				003CF2572BCFACF50025B6C4 /* FindedPlantInfoViewModel.swift in Sources */,
 				0053B1302BACB6DC00611FE2 /* PlantDetailViewController.swift in Sources */,
 				0053B1372BACBB9A00611FE2 /* LoginScreenViewModel.swift in Sources */,
 				0053B1132BAC3DAB00611FE2 /* MainEndpoint.swift in Sources */,
+				003CF2512BCF60200025B6C4 /* OpenImageFlow.swift in Sources */,
 				0053B10B2BAC276D00611FE2 /* ViewController.swift in Sources */,
 				0053B0D92BAAF9FD00611FE2 /* MoyaClient.swift in Sources */,
 				0053B12E2BACB6C500611FE2 /* PlantInfoViewModel.swift in Sources */,
+				003CF23B2BCDB16E0025B6C4 /* CameraFlow.swift in Sources */,
 				0053B0EF2BAB8C3400611FE2 /* MainFlow.swift in Sources */,
 				0053B1212BAC606700611FE2 /* UserPlantDetailFlow.swift in Sources */,
 				0053B0F42BAB8DDA00611FE2 /* Button.swift in Sources */,
@@ -506,6 +557,7 @@
 				0053B1112BAC3D0300611FE2 /* MainService.swift in Sources */,
 				0053B10F2BAC35EA00611FE2 /* Plant.swift in Sources */,
 				0053B1452BAD152800611FE2 /* LoginComposer.swift in Sources */,
+				003CF2372BCD9F820025B6C4 /* PlantByPhotoViewController.swift in Sources */,
 				0053B0E62BAB216F00611FE2 /* AppFlow.swift in Sources */,
 				0053B13B2BACBBD500611FE2 /* SignInScreenViewModel.swift in Sources */,
 				0053B1472BAD5DC300611FE2 /* AllPlantsFlow.swift in Sources */,
@@ -518,10 +570,13 @@
 				0053B0FA2BAC181000611FE2 /* FontStylable.swift in Sources */,
 				0053B1342BACBB2B00611FE2 /* UserPlant.swift in Sources */,
 				0053B0DF2BAAFE4D00611FE2 /* UserService.swift in Sources */,
+				003CF2532BCF603A0025B6C4 /* OpenImageComposer.swift in Sources */,
 				0053B0D52BAAF90B00611FE2 /* NetworkClient.swift in Sources */,
 				0053B13F2BACD28700611FE2 /* SignInFlow.swift in Sources */,
 				0053B13D2BACBBEC00611FE2 /* SignInScreenViewController.swift in Sources */,
+				003CF2592BCFAD060025B6C4 /* FindedPlantInfoViewController.swift in Sources */,
 				0053B11B2BAC5D2700611FE2 /* UserPlantDetailViewController.swift in Sources */,
+				003CF2552BCF71FA0025B6C4 /* ImageResponse.swift in Sources */,
 				0053B1412BACD2C600611FE2 /* SignInComposer.swift in Sources */,
 				0053B1432BAD14F200611FE2 /* LoginFlow.swift in Sources */,
 				0053B1232BAC608900611FE2 /* UserPlantDetailComposer.swift in Sources */,
@@ -532,6 +587,7 @@
 				0053B12C2BACB6AD00611FE2 /* PlantsListViewController.swift in Sources */,
 				0053B0FC2BAC182E00611FE2 /* FontStyles.swift in Sources */,
 				0053B0D72BAAF94F00611FE2 /* NetworkEndpoint.swift in Sources */,
+				003CF2392BCD9F920025B6C4 /* PlantByPhotoViewModel.swift in Sources */,
 				0053B10D2BAC278700611FE2 /* Subscription.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

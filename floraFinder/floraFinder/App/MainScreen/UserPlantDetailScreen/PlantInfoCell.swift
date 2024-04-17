@@ -54,10 +54,10 @@ public final class PlantInfoCellView: UIView {
                 
         }
         .backgroundColor(.cellBackGround)
-        .cornerRadius(4)
-        .borderColor(.white)
-        .borderWidth(1)
-        .heightAnchor(32)
+        .cornerRadius(12)
+//        .borderColor(.white)
+//        .borderWidth(1)
+        .heightAnchor(48)
         .activate()
     }
 

@@ -11,10 +11,10 @@ import UIKit
 
 public extension NetworkEndpoint {
     enum Main {
-        public static func allPlants() -> NetworkEndpoint {
+        public static func allPlants(query: String = "") -> NetworkEndpoint {
             NetworkEndpoint(
                 method: .get,
-                path: "plants",
+                path: "plants/\(query)",
                 isAuthorizationRequired: false
             )
         }

@@ -1,35 +1,39 @@
 //
-//  PlantDetailViewController.swift
+//  FindedPlantInfoViewController.swift
 //  floraFinder
 //
-//  Created by Al Stark on 21.03.2024.
+//  Created by Al Stark on 17.04.2024.
 //
 
 import DeclarativeLayoutKit
 import RxDataSources
 import RxSwift
 import RxCocoa
+import AVFoundation
 
 
-public protocol PlantDetailViewControllerBindings {
+public protocol FindedPlantInfoViewControllerBindings {
     var image: Driver<UIImage?> { get }
 
     var infoCells: Driver<[PlantInfoCellViewModel]> { get }
     var addPlant: Binder<Void> { get }
+    var isFindPlant: Driver<Bool> { get }
 }
 
-public final class PlantDetailViewController: ViewController {
+public final class FindedPlantInfoViewController: ViewController {
     private weak var mainImage: UIImageView!
 
     private weak var settingsInfoStack: UIStackView!
     private weak var addButton: Button!
-    
+    private weak var notFoundLabel: UILabel!
     
     public override func loadView() {
         view = mainView()
     }
     
-    public func bind(to bindings: PlantDetailViewControllerBindings) -> Disposable {
+    
+    
+    public func bind(to bindings: FindedPlantInfoViewControllerBindings) -> Disposable {
         return [
             bindings.infoCells.map({ [unowned self] plants in
                 plants.map { plant in
@@ -38,7 +42,12 @@ public final class PlantDetailViewController: ViewController {
             }).drive(settingsInfoStack.rx.views),
             
             bindings.image.drive(mainImage.rx.image),
-            addButton.rx.tap.bind(to: bindings.addPlant)
+            addButton.rx.tap.bind(to: bindings.addPlant),
+            bindings.isFindPlant.drive(addButton.rx.isHidden),
+            bindings.isFindPlant.drive(settingsInfoStack.rx.isHidden),
+            bindings.isFindPlant.map({ ishiden in
+                !ishiden
+            }).drive(notFoundLabel.rx.isHidden)
         ]
     }
     
@@ -47,15 +56,12 @@ public final class PlantDetailViewController: ViewController {
         view.configure(with: viewModel)
         return view
     }
-
 }
 
-
-private extension PlantDetailViewController {
+private extension FindedPlantInfoViewController {
     func mainView() -> UIView {
         let mainView = UIView()
             .backgroundColor(.mainBackGround)
-        
         
         return mainView.add {
             UIImageView()
@@ -83,6 +89,13 @@ private extension PlantDetailViewController {
                 .heightAnchor(45)
                 .horizontalAnchor(20)
                 .topAnchor(30.from(settingsInfoStack.bottomAnchor))
+        
+            UILabel()
+                .assign(to: &notFoundLabel)
+                .isHidden(true)
+                .centerXAnchor()
+                .centerYAnchor()
         }
     }
 }
+
