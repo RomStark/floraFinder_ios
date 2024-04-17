@@ -82,8 +82,15 @@ public extension NetworkEndpoint {
                 path: "/predict",
                 isAuthorizationRequired: false,
                 task: .multipart([.data(data, name: "image", fileName: "image.jpg", mimeType: "image/jpeg")]),
-                baseURL: URL(string: "http://127.0.0.1:8000")!
+                baseURL: URL(string: "http://192.168.1.102:8000")!
             )
+        }
+        
+        public static func deletePlant(id: String) -> NetworkEndpoint {
+            NetworkEndpoint(
+                method: .delete,
+                path: "users/plants/\(id)",
+                isAuthorizationRequired: true)
         }
     }
 }

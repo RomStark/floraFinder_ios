@@ -7,6 +7,7 @@
 
 import UIKit
 import UserNotifications
+import RxSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var appFlow: AppFlow!
     private var appDependencies: AppDependencies!
     private let notificationsCenter = UNUserNotificationCenter.current()
-
+    private let disposeBag = DisposeBag()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -56,9 +57,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let userInfo = notification.request.content.userInfo
         if response.actionIdentifier == "wateringAction" {
             if let plantID = userInfo["plantID"] as? String {
-                appDependencies.userService.wateringPlantBy(id: plantID).subscribe(onDisposed:  {
+                appDependencies.userService.wateringPlantBy(id: plantID).subscribe(onCompleted: {
                     NotificationsService.sendSuccessNotification(for: plantID)
-                }).dispose()
+                }).disposed(by: disposeBag)
             }
         }
         

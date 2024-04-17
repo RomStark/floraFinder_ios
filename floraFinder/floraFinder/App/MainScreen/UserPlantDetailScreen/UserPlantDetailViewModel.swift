@@ -23,14 +23,14 @@ public final class UserPlantDetailViewModel: FlowController {
     private let infoCellsRelay = BehaviorRelay<[PlantInfoCellViewModel]>(value: [])
    
     
-//    private let service: MainService
+    private let service: UserService
     private let imageLoader: ImageLoader
     private let plant: UserPlant
     
-    public init(plant: UserPlant, imageLoader: @escaping ImageLoader) {
+    public init(plant: UserPlant, service: UserService, imageLoader: @escaping ImageLoader) {
         self.plant = plant
         self.imageLoader = imageLoader
-        
+        self.service = service
         imageLoader(plant.imageURL).subscribe { [weak self] image in
             self?.imageRelay.accept(image)
         }
@@ -41,12 +41,27 @@ public final class UserPlantDetailViewModel: FlowController {
     private func cellsViewModels(plant: UserPlant) -> [PlantInfoCellViewModel] {
         [PlantInfoCellViewModel(title: "название", value: plant.name),
          PlantInfoCellViewModel(title: "описание", value: plant.description),
+         PlantInfoCellViewModel(title: "температурный режим", value: "\(plant.minT)-\(plant.maxT)C"),
+         PlantInfoCellViewModel(title: "влажность", value: "\(plant.humidity)%"),
+         PlantInfoCellViewModel(title: "Полив", value: "раз в \(plant.water_interval) дней"),
         ]
+    }
+    
+    private func deletePlant() {
+        service.deletePlant(id: plant.id).subscribe {
+            print("удалено")
+        }.disposed(by: disposeBag)
     }
 }
 
 // MARK: - Биндинги для контроллера
 extension UserPlantDetailViewModel: UserPlantDetailViewControllerBindings {
+    public var deleteButtonTapped: RxSwift.Binder<Void> {
+        Binder(self) { vm, _ in
+            vm.deletePlant()
+        }
+    }
+    
     public var image: RxCocoa.Driver<UIImage?> {
         imageRelay.asDriver(onErrorJustReturn: nil)
     }

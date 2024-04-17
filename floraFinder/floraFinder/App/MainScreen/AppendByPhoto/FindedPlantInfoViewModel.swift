@@ -32,20 +32,36 @@ public final class FindedPlantInfoViewModel: FlowController {
 
         self.service = service
         self.imageLoader = imageLoader
-        service.getAllPlants(query: name).subscribe { [weak self] plants in
-            self?.plant = plants[0]
-        }.disposed(by: disposeBag)
-        
-        imageLoader(plant?.imageURL).subscribe { [weak self] image in
-            self?.imageRelay.accept(image)
-        }
-        .disposed(by: disposeBag)
+        service.getAllPlants(query: name).subscribe(onSuccess: { [weak self] plants in
+            print(plants)
+            print(plants[0].name)
+            if plants.count == 1 {
+                self?.plant = plants[0]
+                self?.infoCellsRelay.accept((self?.cellsViewModels(plant: (self?.plant)!))!)
+                self?.imageLoader(plants[0].imageURL).subscribe { [weak self] image in
+                    self?.imageRelay.accept(image)
+                }
+                .disposed(by: self!.disposeBag)
+            } else {
+                self?.isGetPlantRelay.accept(true)
+            }
+        }).disposed(by: disposeBag)
     }
+
+
+private func cellsViewModels(plant: Plant) -> [PlantInfoCellViewModel] {
+    [PlantInfoCellViewModel(title: "название", value: plant.name),
+     PlantInfoCellViewModel(title: "описание", value: plant.description),
+     PlantInfoCellViewModel(title: "температурный режим", value: "\(plant.minT)-\(plant.maxT)C"),
+     PlantInfoCellViewModel(title: "влажность", value: "\(plant.humidity)%"),
+     PlantInfoCellViewModel(title: "Полив", value: "раз в \(plant.water_interval) дня"),
+    ]
+}
     
     private func addPlantToUser() {
         guard let plant else { return }
         let model = AddPlantDTO(
-            givenName: "",
+            givenName: "второе растение",
             name: plant.name,
             description: plant.description,
             minT: plant.minT,
@@ -68,7 +84,7 @@ public final class FindedPlantInfoViewModel: FlowController {
 // MARK: - Биндинги для контроллера
 extension FindedPlantInfoViewModel: FindedPlantInfoViewControllerBindings {
     public var isFindPlant: RxCocoa.Driver<Bool> {
-        isGetPlantRelay.asDriver()
+        isGetPlantRelay.asDriver(onErrorJustReturn: false)
     }
     
     public var addPlant: RxSwift.Binder<Void> {

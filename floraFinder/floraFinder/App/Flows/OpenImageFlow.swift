@@ -16,7 +16,13 @@ func OpenImageFlow(
         in: navigationController,
         OpenImageComposer.compose(
             dependencies: dependencies,
-            flowDependencies: OpenImageFlowDependencies(),
+            flowDependencies: OpenImageFlowDependencies(plantInfoFlow: { name in
+                FindedPlantFlow(
+                    in: navigationController,
+                    dependencies: dependencies,
+                    name: name
+                )()
+            }),
             image: image
         )
     )

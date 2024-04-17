@@ -97,24 +97,30 @@ private extension MainScreenViewController {
                         .axis(.horizontal)
                         .spacing(20)
                         .append({
-                            UIView()
-                                .sizeAnchor(20)
-                            UIButton()
-                                .backgroundColor(.red)
-                                .sizeAnchor(24)
-                                .activate()
+//                            UIView()
+//                                .sizeAnchor(20)
+//
+//                            Button()
+////                                .backgroundColor(.red)
+////                                .assign(to: &openAllPlantsList)
+////                                .image(UIImage(systemName: "plus.circle"))
+//                                .sizeAnchor(40)
+//                                .activate()
+                            
                             
                             UILabel()
                                 .assign(to: &label)
                                 .set(fontStyle: .color(.black), .center)
                                 .styledText("Мой Сад")
                             
-                            UIButton()
-                                .backgroundColor(.red)
-                                .sizeAnchor(24)
-                                .activate()
-                            UIView()
-                                .sizeAnchor(20)
+//                            Button()
+////                                .backgroundColor(.red)
+//                                .assign(to: &openAllPlantsList)
+//                                .image(UIImage(systemName: "plus.circle"))
+//                                .sizeAnchor(40)
+//                                .activate()
+//                            UIView()
+//                                .sizeAnchor(20)
                         })
                         
                     collectionView

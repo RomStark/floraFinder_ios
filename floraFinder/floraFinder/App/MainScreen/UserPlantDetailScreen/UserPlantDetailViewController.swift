@@ -20,12 +20,14 @@ public protocol UserPlantDetailViewControllerBindings {
 //    var humidity: Driver<String> { get }
 //    var lightingLabel: Driver<String> { get }
     var infoCells: Driver<[PlantInfoCellViewModel]> { get }
+    var deleteButtonTapped: Binder<Void> { get }
 }
 
 public final class UserPlantDetailViewController: ViewController {
     private weak var mainImage: UIImageView!
     private weak var nameLabel: UILabel!
     private weak var descriptionLabel: UILabel!
+    private weak var deleteButton: UIButton!
 //    private weak var nameLabel: UILabel!
 //    private weak var givenNameLabel: UILabel!
 //    private weak var descriptionLabel: UILabel!
@@ -43,17 +45,17 @@ public final class UserPlantDetailViewController: ViewController {
     }
     
     public func bind(to bindings: UserPlantDetailViewControllerBindings) -> Disposable {
-        nameLabel.styledText("название")
-        descriptionLabel.styledText("описание: тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание")
+//        nameLabel.styledText("название")
+//        descriptionLabel.styledText("описание: тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание")
         return [
-//            bindings.infoCells.map({ [unowned self] plants in
-//                plants.map { plant in
-//                    self.makeSettingsCell(with: plant)
-//                }
-//            }).drive(settingsInfoStack.rx.views),
+            bindings.infoCells.map({ [unowned self] plants in
+                plants.map { plant in
+                    self.makeSettingsCell(with: plant)
+                }
+            }).drive(settingsInfoStack.rx.views),
             
-            bindings.image.drive(mainImage.rx.image)
-            
+            bindings.image.drive(mainImage.rx.image),
+            deleteButton.rx.tap.bind(to: bindings.deleteButtonTapped)
         ]
     }
     
@@ -104,6 +106,14 @@ private extension UserPlantDetailViewController {
 //                .bottomAnchor(40)
                 .topAnchor(30.from(mainImage.bottomAnchor))
             
+            UIButton()
+                .assign(to: &deleteButton)
+                .backgroundColor(.red)
+                .styledText("Удалить")
+                .cornerRadius(10)
+                .heightAnchor(42)
+                .horizontalAnchor(20)
+                .bottomAnchor(80)
           
         }
     }

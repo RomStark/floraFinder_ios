@@ -1,5 +1,5 @@
 //
-//  OpenImageComposer.swift
+//  FindedPlantComposer.swift
 //  floraFinder
 //
 //  Created by Al Stark on 17.04.2024.
@@ -7,31 +7,31 @@
 
 import FunctionalNavigationFlowKit
 
-protocol OpenImageDependencies: FindedPlantDependencies {
+protocol FindedPlantDependencies: ImageLoadingDependencies  {
 //    var mainService: MainService { get }
     var userService: UserService { get }
+    
 }
 
-struct OpenImageFlowDependencies {
+struct FindedPlantFlowDependencies {
     
-    let plantInfoFlow: (String) -> ()
+//    let plantInfoFlow: (Plant) -> ()
 ////
 ////    let allPlantFlow: Flow
 //    let openCamera: () -> ()
 }
 
 
-enum OpenImageComposer {
+enum FindedPlantComposer {
     static func compose(
-        dependencies: OpenImageDependencies,
-        flowDependencies: OpenImageFlowDependencies,
-        image: UIImage
+        dependencies: FindedPlantDependencies,
+        flowDependencies: FindedPlantFlowDependencies,
+        name: String
     ) -> UIViewController {
-        let viewModel = OpenImageViewModel(image: image, service: dependencies.userService)
+        let viewModel = FindedPlantInfoViewModel(name: name, service: dependencies.userService, imageLoader: dependencies.imageLoader)
         viewModel.onComplete = {
             switch $0 {
-            case .openPlantInfo(let name):
-                flowDependencies.plantInfoFlow(name)
+            
 //            case let .plantInfo(model):
 //                flowDependencies.plantInfoFlow(model)
 //            case .allPlants:
@@ -41,7 +41,7 @@ enum OpenImageComposer {
         }
 
         
-        let viewController = OpenImageViewController()
+        let viewController = FindedPlantInfoViewController()
 //        viewController.bind(to: viewModel).dispose()
         viewController.subscription = LifetimeSubscription { [unowned viewController] in
             viewController.bind(to: viewModel)

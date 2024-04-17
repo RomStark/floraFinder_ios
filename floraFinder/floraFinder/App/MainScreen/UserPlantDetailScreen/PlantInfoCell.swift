@@ -27,38 +27,23 @@ public final class PlantInfoCellView: UIView {
                 .assign(to: &titleLabel)
                 .set(fontStyle: .size(.medium))
                 .leftAnchor(5)
-                .verticalAnchor(10)
+                .topAnchor(10)
+//                .verticalAnchor(10)
             
             
             UILabel()
                 .assign(to: &valueLabel)
+                .numberOfLines(0)
                 .set(fontStyle: .size(.medium))
-                .rightAnchor(5)
-                .verticalAnchor(10)
-            
-//            UIStackView()
-//                .add([
-//                    UILabel()
-//                        .assign(to: &titleLabel)
-//                        .set(fontStyle: .size(.small)),
-////                        .set(fontStyle: .smallMedium),
-//                    UILabel()
-//                        .assign(to: &valueLabel)
-//                        .set(fontStyle: .size(.small))
-//                ])
-//                .axis(.horizontal)
-//                .spacing(40)
-//                .backgroundColor(.red)
-//                .horizontalAnchor(0)
-//                .verticalAnchor(5)
+                .topAnchor(10.from(titleLabel.bottomAnchor))
+                .horizontalAnchor(5)
+                .bottomAnchor(10)
+
                 
         }
         .backgroundColor(.cellBackGround)
         .cornerRadius(12)
-//        .borderColor(.white)
-//        .borderWidth(1)
-        .heightAnchor(48)
-        .activate()
+
     }
 
     public required init?(coder aDecoder: NSCoder) {

@@ -19,6 +19,8 @@
 		003CF2552BCF71FA0025B6C4 /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2542BCF71FA0025B6C4 /* ImageResponse.swift */; };
 		003CF2572BCFACF50025B6C4 /* FindedPlantInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2562BCFACF50025B6C4 /* FindedPlantInfoViewModel.swift */; };
 		003CF2592BCFAD060025B6C4 /* FindedPlantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2582BCFAD060025B6C4 /* FindedPlantInfoViewController.swift */; };
+		0047389C2BCFF30E004E1444 /* FindedPlantFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047389B2BCFF30E004E1444 /* FindedPlantFlow.swift */; };
+		0047389E2BCFF32A004E1444 /* FindedPlantComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047389D2BCFF32A004E1444 /* FindedPlantComposer.swift */; };
 		0053B0C02BAADEDB00611FE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053B0BF2BAADEDB00611FE2 /* AppDelegate.swift */; };
 		0053B0C92BAADEE100611FE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0053B0C82BAADEE100611FE2 /* Assets.xcassets */; };
 		0053B0CC2BAADEE100611FE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0053B0CA2BAADEE100611FE2 /* LaunchScreen.storyboard */; };
@@ -92,6 +94,8 @@
 		003CF2542BCF71FA0025B6C4 /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
 		003CF2562BCFACF50025B6C4 /* FindedPlantInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindedPlantInfoViewModel.swift; sourceTree = "<group>"; };
 		003CF2582BCFAD060025B6C4 /* FindedPlantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindedPlantInfoViewController.swift; sourceTree = "<group>"; };
+		0047389B2BCFF30E004E1444 /* FindedPlantFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindedPlantFlow.swift; sourceTree = "<group>"; };
+		0047389D2BCFF32A004E1444 /* FindedPlantComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindedPlantComposer.swift; sourceTree = "<group>"; };
 		0053B0BC2BAADEDB00611FE2 /* floraFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = floraFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0053B0BF2BAADEDB00611FE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0053B0C82BAADEE100611FE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -285,6 +289,7 @@
 				0053B14C2BAD5F9300611FE2 /* PlantDetailFlow.swift */,
 				003CF23A2BCDB16E0025B6C4 /* CameraFlow.swift */,
 				003CF2502BCF60200025B6C4 /* OpenImageFlow.swift */,
+				0047389B2BCFF30E004E1444 /* FindedPlantFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				0053B14A2BAD5EF500611FE2 /* PlantDetailComposer.swift */,
 				003CF23C2BCDB18E0025B6C4 /* CameraComposer.swift */,
 				003CF2522BCF603A0025B6C4 /* OpenImageComposer.swift */,
+				0047389D2BCFF32A004E1444 /* FindedPlantComposer.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 				003CF24F2BCF5E930025B6C4 /* OpenImageViewModel.swift in Sources */,
 				0053B0EB2BAB320A00611FE2 /* AppDependencies.swift in Sources */,
 				003CF24D2BCF5E870025B6C4 /* OpenImageViewController.swift in Sources */,
+				0047389C2BCFF30E004E1444 /* FindedPlantFlow.swift in Sources */,
 				0053B1072BAC1D6B00611FE2 /* FlowController.swift in Sources */,
 				0053B1092BAC1F8300611FE2 /* MainScreenViewController.swift in Sources */,
 				003CF24B2BCE081A0025B6C4 /* modelForPlant.mlpackage in Sources */,
@@ -565,6 +572,7 @@
 				00760BD42BCC510700D3E879 /* NotificationsService.swift in Sources */,
 				0053B14D2BAD5F9300611FE2 /* PlantDetailFlow.swift in Sources */,
 				0053B1322BACB82900611FE2 /* PlantsCollectionView.swift in Sources */,
+				0047389E2BCFF32A004E1444 /* FindedPlantComposer.swift in Sources */,
 				0053B1152BAC415200611FE2 /* Services.swift in Sources */,
 				0053B0F12BAB8D7E00611FE2 /* NavigationController.swift in Sources */,
 				0053B0FA2BAC181000611FE2 /* FontStylable.swift in Sources */,

@@ -10,7 +10,7 @@ import FunctionalNavigationFlowKit
 
 
 protocol UserPlantDetailDependencies: ImageLoadingDependencies  {
-    //    var mainService: MainService { get }
+        var userService: UserService { get }
 }
 
 struct UserPlantDetailFlowDependencies {
@@ -26,7 +26,7 @@ enum UserPlantDetailComposer {
         flowDependencies: UserPlantDetailFlowDependencies,
         plant: UserPlant
     ) -> UIViewController {
-        let viewModel = UserPlantDetailViewModel(plant: plant, imageLoader: dependencies.imageLoader)
+        let viewModel = UserPlantDetailViewModel(plant: plant, service: dependencies.userService, imageLoader: dependencies.imageLoader)
         viewModel.onComplete = {
             switch $0 {
                 

@@ -85,38 +85,66 @@ private extension PlantsListViewController {
     
     func mainView() -> UIView {
         let mainView = UIView()
-            .backgroundColor(.mainBackGround)
+            .backgroundColor(.white)
+            
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
             .assign(to: &collection)
             .register(PlantCell.self)
-            .backgroundColor(.secondaryBackGround)
+            .backgroundColor(.mainBackGround)
         
         return mainView.add {
+            
+            
             UIStackView()
                 .append {
                     UILabel()
                         .assign(to: &label)
                         .set(fontStyle: .color(.black), .center)
                         .styledText("Мой Сад")
+                    
+                    
+                    
                     UISearchBar()
                         .backgroundColor(.secondaryBackGround)
                         .tintColor(.secondaryBackGround)
                         .assign(to: &searchBar)
+                    
+                    UIButton()
+                        .assign(to: &button)
+        //                .backgroundColor(.black)
+//                        .image(UIImage(systemName: "camera.fill"))
+                        .borderColor(.black)
+                        .borderWidth(3)
+                        .add({
+                            UILabel()
+                                .text("Открыть камеру")
+                                .centerXAnchor()
+                                .verticalAnchor(0)
+        //                        .edgesAnchors()
+                        })
+                        .set(fontStyle: .color(.black))
+                        .cornerRadius(12)
+                        .heightAnchor(42)
+                        .activate()
+//                        .horizontalAnchor(5)
+//                        .activate()
+//                        .topAnchor(50)
+//                        .rightAnchor(24)
+        //                        .horizontalAnchor(0)
+        //                        .bottomAnchor(300)
+//                        .sizeAnchor(24)
+                    
                     collectionView
                 }
-                .spacing(30)
+                .spacing(20)
                 .axis(.vertical)
                 .topAnchor(50)
                 .horizontalAnchor(0)
                 .bottomAnchor(0)
             
-            UIButton()
-                .assign(to: &button)
-                .backgroundColor(.black)
-                .horizontalAnchor(0)
-                .bottomAnchor(300)
-                .sizeAnchor(40)
+            
+            
         }
     }
 }

@@ -20,7 +20,7 @@ public struct NetworkEndpoint {
         path: String,
         isAuthorizationRequired: Bool = true,
         task: NetworkEndpoint.Task? = nil,
-        baseURL: URL = URL(string: "http://192.168.1.105:8080")!
+        baseURL: URL = URL(string: "http://192.168.1.102:8080")!
     ) {
         self.path = path
         self.method = method

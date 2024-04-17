@@ -26,6 +26,7 @@ public final class FindedPlantInfoViewController: ViewController {
     private weak var settingsInfoStack: UIStackView!
     private weak var addButton: Button!
     private weak var notFoundLabel: UILabel!
+    private weak var scrollView: UIScrollView!
     
     public override func loadView() {
         view = mainView()
@@ -63,7 +64,15 @@ private extension FindedPlantInfoViewController {
         let mainView = UIView()
             .backgroundColor(.mainBackGround)
         
-        return mainView.add {
+        let scrollView = UIScrollView()
+            .assign(to: &scrollView)
+            .backgroundColor(.mainBackGround)
+        let commonView = UIView()
+            .backgroundColor(.mainBackGround)
+        
+        return commonView.add {
+            scrollView.add {
+                mainView.add {
             UIImageView()
                 .assign(to: &mainImage)
                 .clipsToBounds(true)
@@ -92,10 +101,21 @@ private extension FindedPlantInfoViewController {
         
             UILabel()
                 .assign(to: &notFoundLabel)
+                .text("растение не нашлось в списке")
                 .isHidden(true)
                 .centerXAnchor()
                 .centerYAnchor()
+                }
+                .edgesAnchors()
+                .widthAnchor(scrollView.widthAnchor)
+                .heightAnchor(scrollView.heightAnchor.orLess)
+                
+            }
+            .topAnchor(0)
+            .bottomAnchor(commonView.bottomAnchor)
+            .horizontalAnchor(0)
+            .widthAnchor(commonView.widthAnchor)
+            
         }
     }
 }
-

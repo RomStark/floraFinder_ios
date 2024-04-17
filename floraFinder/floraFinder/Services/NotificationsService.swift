@@ -40,7 +40,7 @@ public class NotificationsService {
         content.categoryIdentifier = "plantactions"
         content.userInfo = ["plantID": identifier]
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(triggerTime * 5), repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(triggerTime ), repeats: false)
         let request = UNNotificationRequest(
             identifier: UUID().uuidString,
             content: content,

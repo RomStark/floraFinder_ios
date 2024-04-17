@@ -22,7 +22,7 @@ public final class OpenImageViewModel: FlowController {
     private var mainImageRelay: BehaviorRelay<UIImage>
     
     private let service: UserService
-    
+    private let russDict = ["Anthurium_andraeanum": "андреанум", "Cirsium_vulgare": "бодяк"]
     public init(image: UIImage, service: UserService) {
 
         self.service = service
@@ -33,8 +33,14 @@ public final class OpenImageViewModel: FlowController {
         service.sendImage(data: mainImageRelay.value.jpegData(compressionQuality: 1.0)!)
             .subscribe(onSuccess: { [weak self] response in
                 print(response.real_name)
-                
-                self?.complete(.openPlantInfo(response.real_name))
+//                self?.complete(.openPlantInfo(response.real_name.replacingOccurrences(of: "_", with: " ")))
+                if let russianName = self?.russDict[response.real_name] {
+                    print("Русское название для Anthurium_andraeanum: \(russianName)")
+                    self?.complete(.openPlantInfo(russianName))
+                } else {
+                    print("Нет русского названия для Anthurium_andraeanum")
+                    self?.complete(.openPlantInfo(""))
+                }
             }).disposed(by: disposeBag)
     }
 }

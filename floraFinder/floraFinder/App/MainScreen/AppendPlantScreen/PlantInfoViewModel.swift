@@ -43,12 +43,15 @@ public final class PlantDetailViewModel: FlowController {
     private func cellsViewModels(plant: Plant) -> [PlantInfoCellViewModel] {
         [PlantInfoCellViewModel(title: "название", value: plant.name),
          PlantInfoCellViewModel(title: "описание", value: plant.description),
+         PlantInfoCellViewModel(title: "температурный режим", value: "\(plant.minT)-\(plant.maxT)C"),
+         PlantInfoCellViewModel(title: "влажность", value: "\(plant.humidity)%"),
+         PlantInfoCellViewModel(title: "Полив", value: "раз в \(plant.water_interval) дня"),
         ]
     }
     
     private func addPlantToUser() {
         let model = AddPlantDTO(
-            givenName: "",
+            givenName: "первое растение",
             name: plant.name,
             description: plant.description,
             minT: plant.minT,
