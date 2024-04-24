@@ -11,6 +11,51 @@ import RxCocoa
 import UIKit
 import CoreML
 import CoreImage
+import DeclarativeLayoutKit
+
+public final class ToastView: UIView {
+    init(frame: CGRect, text: String) {
+        super.init(frame: frame)
+
+        self.add {
+            UIStackView().append {
+                UILabel()
+                    .set(fontStyle: .color(.gray))
+                    .styledText(text)
+            }
+            .axis(.horizontal)
+            .verticalAnchor(12)
+            .horizontalAnchor(20)
+        }
+        .backgroundColor(.white)
+        .cornerRadius(8)
+    }
+    
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+public extension ViewController {
+    func showTopHint(text: String) {
+        let toastView = ToastView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 48), text: text)
+        view.add {
+            toastView
+                .topAnchor(16.to(self.view.safeAreaLayoutGuide.topAnchor))
+                .horizontalAnchor(16)
+                .heightAnchor(48)
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            UIView.animate(withDuration: 0.5, animations: {
+                toastView.alpha = 0
+            }, completion: { _ in
+                toastView.removeFromSuperview()
+            })
+        }
+    }
+}
 
 extension UIImage {
     func resize(to newSize: CGSize) -> UIImage? {

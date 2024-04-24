@@ -18,11 +18,12 @@ func MainScreenFlow(
         MainScreensComposer.compose(
             dependencies: dependencies,
             flowDependencies: MainScreenFlowDependencies(
-                plantInfoFlow: { plant in
+                plantInfoFlow: { plant, onDelete  in
                     UserPlantDetailFlow(
                         in: navigationController,
                         dependencies: dependencies,
-                        plant: plant
+                        plant: plant,
+                        onDelete: onDelete
                     )()
                 },
                 allPlantFlow: { onAdd in
@@ -31,7 +32,7 @@ func MainScreenFlow(
                         dependencies: dependencies,
                         onAdd: onAdd
                     )()
-                }
+                }, openCamera: {CameraFlow(in: navigationController, dependencies: dependencies, type: "disease")()}
             )
         )
     )

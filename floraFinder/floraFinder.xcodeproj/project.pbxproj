@@ -21,6 +21,11 @@
 		003CF2592BCFAD060025B6C4 /* FindedPlantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2582BCFAD060025B6C4 /* FindedPlantInfoViewController.swift */; };
 		0047389C2BCFF30E004E1444 /* FindedPlantFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047389B2BCFF30E004E1444 /* FindedPlantFlow.swift */; };
 		0047389E2BCFF32A004E1444 /* FindedPlantComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047389D2BCFF32A004E1444 /* FindedPlantComposer.swift */; };
+		004738A02BD91292004E1444 /* DiseaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0047389F2BD91291004E1444 /* DiseaseResponse.swift */; };
+		004738A22BD91725004E1444 /* FindedDiseaseFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004738A12BD91725004E1444 /* FindedDiseaseFlow.swift */; };
+		004738A42BD91748004E1444 /* FindedDiseaseComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004738A32BD91748004E1444 /* FindedDiseaseComposer.swift */; };
+		004738A62BD91AA9004E1444 /* DiseaseInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004738A52BD91AA8004E1444 /* DiseaseInfoViewModel.swift */; };
+		004738A82BD91B7B004E1444 /* DiseaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004738A72BD91B7B004E1444 /* DiseaseInfoViewController.swift */; };
 		0053B0C02BAADEDB00611FE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053B0BF2BAADEDB00611FE2 /* AppDelegate.swift */; };
 		0053B0C92BAADEE100611FE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0053B0C82BAADEE100611FE2 /* Assets.xcassets */; };
 		0053B0CC2BAADEE100611FE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0053B0CA2BAADEE100611FE2 /* LaunchScreen.storyboard */; };
@@ -96,6 +101,11 @@
 		003CF2582BCFAD060025B6C4 /* FindedPlantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindedPlantInfoViewController.swift; sourceTree = "<group>"; };
 		0047389B2BCFF30E004E1444 /* FindedPlantFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindedPlantFlow.swift; sourceTree = "<group>"; };
 		0047389D2BCFF32A004E1444 /* FindedPlantComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindedPlantComposer.swift; sourceTree = "<group>"; };
+		0047389F2BD91291004E1444 /* DiseaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseResponse.swift; sourceTree = "<group>"; };
+		004738A12BD91725004E1444 /* FindedDiseaseFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindedDiseaseFlow.swift; sourceTree = "<group>"; };
+		004738A32BD91748004E1444 /* FindedDiseaseComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindedDiseaseComposer.swift; sourceTree = "<group>"; };
+		004738A52BD91AA8004E1444 /* DiseaseInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseInfoViewModel.swift; sourceTree = "<group>"; };
+		004738A72BD91B7B004E1444 /* DiseaseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseInfoViewController.swift; sourceTree = "<group>"; };
 		0053B0BC2BAADEDB00611FE2 /* floraFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = floraFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0053B0BF2BAADEDB00611FE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0053B0C82BAADEE100611FE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -259,6 +269,7 @@
 				0053B10E2BAC35EA00611FE2 /* Plant.swift */,
 				0053B1332BACBB2B00611FE2 /* UserPlant.swift */,
 				003CF2542BCF71FA0025B6C4 /* ImageResponse.swift */,
+				0047389F2BD91291004E1444 /* DiseaseResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -290,6 +301,7 @@
 				003CF23A2BCDB16E0025B6C4 /* CameraFlow.swift */,
 				003CF2502BCF60200025B6C4 /* OpenImageFlow.swift */,
 				0047389B2BCFF30E004E1444 /* FindedPlantFlow.swift */,
+				004738A12BD91725004E1444 /* FindedDiseaseFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -339,6 +351,7 @@
 				003CF23C2BCDB18E0025B6C4 /* CameraComposer.swift */,
 				003CF2522BCF603A0025B6C4 /* OpenImageComposer.swift */,
 				0047389D2BCFF32A004E1444 /* FindedPlantComposer.swift */,
+				004738A32BD91748004E1444 /* FindedDiseaseComposer.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -360,6 +373,8 @@
 				0053B1032BAC1D1200611FE2 /* MainScreenViewModel.swift */,
 				0053B1082BAC1F8300611FE2 /* MainScreenViewController.swift */,
 				0053B11E2BAC5E0300611FE2 /* UserPlantsCollectionView.swift */,
+				004738A52BD91AA8004E1444 /* DiseaseInfoViewModel.swift */,
+				004738A72BD91B7B004E1444 /* DiseaseInfoViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -558,6 +573,7 @@
 				0053B1212BAC606700611FE2 /* UserPlantDetailFlow.swift in Sources */,
 				0053B0F42BAB8DDA00611FE2 /* Button.swift in Sources */,
 				0053B0DC2BAAFDF200611FE2 /* UserEndpoint.swift in Sources */,
+				004738A42BD91748004E1444 /* FindedDiseaseComposer.swift in Sources */,
 				0053B11F2BAC5E0300611FE2 /* UserPlantsCollectionView.swift in Sources */,
 				0053B1252BAC650500611FE2 /* PlantInfoCell.swift in Sources */,
 				0053B0F82BAC17F200611FE2 /* FontStyle.swift in Sources */,
@@ -584,9 +600,12 @@
 				0053B13D2BACBBEC00611FE2 /* SignInScreenViewController.swift in Sources */,
 				003CF2592BCFAD060025B6C4 /* FindedPlantInfoViewController.swift in Sources */,
 				0053B11B2BAC5D2700611FE2 /* UserPlantDetailViewController.swift in Sources */,
+				004738A82BD91B7B004E1444 /* DiseaseInfoViewController.swift in Sources */,
 				003CF2552BCF71FA0025B6C4 /* ImageResponse.swift in Sources */,
 				0053B1412BACD2C600611FE2 /* SignInComposer.swift in Sources */,
+				004738A62BD91AA9004E1444 /* DiseaseInfoViewModel.swift in Sources */,
 				0053B1432BAD14F200611FE2 /* LoginFlow.swift in Sources */,
+				004738A22BD91725004E1444 /* FindedDiseaseFlow.swift in Sources */,
 				0053B1232BAC608900611FE2 /* UserPlantDetailComposer.swift in Sources */,
 				0053B0ED2BAB334900611FE2 /* Extensions.swift in Sources */,
 				0053B1492BAD5DF000611FE2 /* AllPlantsComposer.swift in Sources */,
@@ -595,6 +614,7 @@
 				0053B12C2BACB6AD00611FE2 /* PlantsListViewController.swift in Sources */,
 				0053B0FC2BAC182E00611FE2 /* FontStyles.swift in Sources */,
 				0053B0D72BAAF94F00611FE2 /* NetworkEndpoint.swift in Sources */,
+				004738A02BD91292004E1444 /* DiseaseResponse.swift in Sources */,
 				003CF2392BCD9F920025B6C4 /* PlantByPhotoViewModel.swift in Sources */,
 				0053B10D2BAC278700611FE2 /* Subscription.swift in Sources */,
 			);

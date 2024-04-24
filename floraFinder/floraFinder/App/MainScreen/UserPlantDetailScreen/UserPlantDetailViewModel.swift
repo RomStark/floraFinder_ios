@@ -11,7 +11,7 @@ import RxCocoa
 
 public final class UserPlantDetailViewModel: FlowController {
     public enum Event {
-        
+        case deletePlant(String)
     }
     
     public var onComplete: CompletionBlock?
@@ -26,11 +26,13 @@ public final class UserPlantDetailViewModel: FlowController {
     private let service: UserService
     private let imageLoader: ImageLoader
     private let plant: UserPlant
+    private let onDelete: () -> Void
     
-    public init(plant: UserPlant, service: UserService, imageLoader: @escaping ImageLoader) {
+    public init(plant: UserPlant, service: UserService, imageLoader: @escaping ImageLoader, onDelete: @escaping () -> Void) {
         self.plant = plant
         self.imageLoader = imageLoader
         self.service = service
+        self.onDelete = onDelete
         imageLoader(plant.imageURL).subscribe { [weak self] image in
             self?.imageRelay.accept(image)
         }
@@ -48,8 +50,9 @@ public final class UserPlantDetailViewModel: FlowController {
     }
     
     private func deletePlant() {
-        service.deletePlant(id: plant.id).subscribe {
-            print("удалено")
+        service.deletePlant(id: plant.id).subscribe { [weak self] in
+            self?.complete(.deletePlant("Растение удалено"))
+            self?.onDelete()
         }.disposed(by: disposeBag)
     }
 }

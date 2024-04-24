@@ -79,7 +79,17 @@ public extension NetworkEndpoint {
         public static func sendImage(data: Data) -> NetworkEndpoint {
             NetworkEndpoint(
                 method: .post,
-                path: "/predict",
+                path: "/predict/plant",
+                isAuthorizationRequired: false,
+                task: .multipart([.data(data, name: "image", fileName: "image.jpg", mimeType: "image/jpeg")]),
+                baseURL: URL(string: "http://192.168.1.102:8000")!
+            )
+        }
+        
+        public static func sendDiseaseImage(data: Data) -> NetworkEndpoint {
+            NetworkEndpoint(
+                method: .post,
+                path: "/predict/disease",
                 isAuthorizationRequired: false,
                 task: .multipart([.data(data, name: "image", fileName: "image.jpg", mimeType: "image/jpeg")]),
                 baseURL: URL(string: "http://192.168.1.102:8000")!

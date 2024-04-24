@@ -13,6 +13,7 @@ public final class OpenImageViewModel: FlowController {
     public enum Event {
 //        case makePhoto(UIImage)
         case openPlantInfo(String)
+        case openDiseaseInfo(String)
     }
     
     public var onComplete: CompletionBlock?
@@ -23,8 +24,10 @@ public final class OpenImageViewModel: FlowController {
     
     private let service: UserService
     private let russDict = ["Anthurium_andraeanum": "андреанум", "Cirsium_vulgare": "бодяк"]
-    public init(image: UIImage, service: UserService) {
-
+    private var type = "plantInfo"
+    
+    public init(image: UIImage, service: UserService, type: String = "plantInfo") {
+        self.type = type
         self.service = service
         mainImageRelay = BehaviorRelay<UIImage>(value: image)
     }
@@ -43,6 +46,13 @@ public final class OpenImageViewModel: FlowController {
                 }
             }).disposed(by: disposeBag)
     }
+    
+    private func sendDiseaseImage() {
+        service.sendDiseaseImage(data: mainImageRelay.value.jpegData(compressionQuality: 1.0)!)
+            .subscribe(onSuccess: { [weak self] response in
+                self?.complete(.openDiseaseInfo(response.disease))
+            }).disposed(by: disposeBag)
+    }
 }
 
 
@@ -50,7 +60,11 @@ public final class OpenImageViewModel: FlowController {
 extension OpenImageViewModel: OpenImageViewControllerBindings {
     public var onContinueTapped: RxSwift.Binder<Void> {
         Binder(self) { vm, _ in
-            vm.sendImage()
+            if vm.type == "plantInfo" {
+                vm.sendImage()
+            } else {
+                vm.sendDiseaseImage()
+            }
         }
     }
     

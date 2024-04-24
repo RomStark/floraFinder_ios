@@ -30,11 +30,7 @@ public final class PlantDetailViewController: ViewController {
         view = mainView()
     }
     
-//    public override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//
-//        scrollView.contentSize = CGSize(width: view.bounds.width, height: view.safeAreaLayoutGuide.layoutFrame.height)
-//    }
+
     
     public func bind(to bindings: PlantDetailViewControllerBindings) -> Disposable {
         return [
@@ -105,9 +101,9 @@ private extension PlantDetailViewController {
                 
             }
             .topAnchor(0)
-            .bottomAnchor(commonView.bottomAnchor)
+            .bottomAnchor(mainView.bottomAnchor)
             .horizontalAnchor(0)
-            .widthAnchor(commonView.widthAnchor)
+            .widthAnchor(mainView.widthAnchor)
             
         }
         

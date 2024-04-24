@@ -15,12 +15,14 @@ import RxCocoa
 public protocol MainScreenViewControllerBindings {
     var plantsCells: Driver<[UserPlantSectionModel]> { get }
     var openAllPlantsList: Binder<Void> { get }
+    var tapCamera: Binder<Void> { get }
 }
 
 public final class MainScreenViewController: ViewController {
     private weak var label: UILabel!
     private weak var collection: UICollectionView!
     private weak var openAllPlantsList: Button!
+    private weak var openDiseaseButton: Button!
     
     public override func loadView() {
         view = mainView()
@@ -29,8 +31,8 @@ public final class MainScreenViewController: ViewController {
     public func bind(to bindings: MainScreenViewControllerBindings) -> Disposable {
         return [
             bindings.plantsCells.drive(collection.rx.items(dataSource: dataSource())),
-            openAllPlantsList.rx.tap.bind(to: bindings.openAllPlantsList)
-            
+            openAllPlantsList.rx.tap.bind(to: bindings.openAllPlantsList),
+            openDiseaseButton.rx.tap.bind(to: bindings.tapCamera)
         ]
     }
 
@@ -122,6 +124,23 @@ private extension MainScreenViewController {
 //                            UIView()
 //                                .sizeAnchor(20)
                         })
+                    
+                    Button()
+                        .assign(to: &openDiseaseButton)
+                        .borderColor(.black)
+                        .borderWidth(3)
+                        .add({
+                            UILabel()
+                                .text("Открыть камеру")
+                                .centerXAnchor()
+                                .verticalAnchor(0)
+        //                        .edgesAnchors()
+                        })
+                        .set(fontStyle: .color(.black))
+                        .cornerRadius(12)
+                        .heightAnchor(42)
+                        .activate()
+                    
                         
                     collectionView
                 }

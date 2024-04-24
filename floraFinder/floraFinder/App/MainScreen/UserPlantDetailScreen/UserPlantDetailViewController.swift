@@ -13,28 +13,14 @@ import RxCocoa
 
 public protocol UserPlantDetailViewControllerBindings {
     var image: Driver<UIImage?> { get }
-//    var name: Driver<String> { get }
-//    var description: Driver<String> { get }
-//    var temp: Driver<String> { get }
-//    var waterInterval: Driver<String> { get }
-//    var humidity: Driver<String> { get }
-//    var lightingLabel: Driver<String> { get }
     var infoCells: Driver<[PlantInfoCellViewModel]> { get }
     var deleteButtonTapped: Binder<Void> { get }
 }
 
 public final class UserPlantDetailViewController: ViewController {
     private weak var mainImage: UIImageView!
-    private weak var nameLabel: UILabel!
-    private weak var descriptionLabel: UILabel!
     private weak var deleteButton: UIButton!
-//    private weak var nameLabel: UILabel!
-//    private weak var givenNameLabel: UILabel!
-//    private weak var descriptionLabel: UILabel!
-//    private weak var tempLabel: UILabel!
-//    private weak var lightingLabel: UILabel!
-//    private weak var humidityLabel: UILabel!
-//    private weak var waterIntervalLabel: UILabel!
+    private weak var scrollView: UIScrollView!
     
     private weak var settingsInfoStack: UIStackView!
     private weak var popButton: Button!
@@ -45,8 +31,6 @@ public final class UserPlantDetailViewController: ViewController {
     }
     
     public func bind(to bindings: UserPlantDetailViewControllerBindings) -> Disposable {
-//        nameLabel.styledText("название")
-//        descriptionLabel.styledText("описание: тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание тут будет большое описание")
         return [
             bindings.infoCells.map({ [unowned self] plants in
                 plants.map { plant in
@@ -64,7 +48,6 @@ public final class UserPlantDetailViewController: ViewController {
         view.configure(with: viewModel)
         return view
     }
-
 }
 
 
@@ -73,48 +56,52 @@ private extension UserPlantDetailViewController {
         let mainView = UIView()
             .backgroundColor(.mainBackGround)
         
+        let scrollView = UIScrollView()
+            .assign(to: &scrollView)
+            .backgroundColor(.mainBackGround)
+        let commonView = UIView()
+            .backgroundColor(.mainBackGround)
         
-        return mainView.add {
-            
-            UILabel()
-                .assign(to: &nameLabel)
-                .set(fontStyle: .size(.medium))
-                .centerXAnchor(0)
-                .topAnchor(15.from(mainView.safeAreaLayoutGuide.topAnchor))
-            
-            UIImageView()
-                .assign(to: &mainImage)
-                .clipsToBounds(true)
-                .cornerRadius(15)
-                .horizontalAnchor(20)
-                .topAnchor(10.from(nameLabel.bottomAnchor))
-                .heightAnchor(200)
-            
-            UILabel()
-                .assign(to: &descriptionLabel)
-                .numberOfLines(0)
-                .set(fontStyle: .size(.medium))
-                .topAnchor(20.from(mainImage.bottomAnchor))
-                .horizontalAnchor(20)
-            
-            
-            UIStackView()
-                .assign(to: &settingsInfoStack)
-                .axis(.vertical)
-                .spacing(20)
-                .horizontalAnchor(20)
-//                .bottomAnchor(40)
-                .topAnchor(30.from(mainImage.bottomAnchor))
-            
-            UIButton()
-                .assign(to: &deleteButton)
-                .backgroundColor(.red)
-                .styledText("Удалить")
-                .cornerRadius(10)
-                .heightAnchor(42)
-                .horizontalAnchor(20)
-                .bottomAnchor(80)
-          
+        
+        return commonView.add {
+            scrollView.add {
+                mainView.add {
+                    
+                    UIImageView()
+                        .assign(to: &mainImage)
+                        .clipsToBounds(true)
+                        .cornerRadius(15)
+                        .horizontalAnchor(20)
+                        .topAnchor(10)
+                        .heightAnchor(200)
+                    
+                    UIStackView()
+                        .assign(to: &settingsInfoStack)
+                        .axis(.vertical)
+                        .spacing(20)
+                        .horizontalAnchor(20)
+                        .topAnchor(30.from(mainImage.bottomAnchor))
+                    
+                    UIButton()
+                        .assign(to: &deleteButton)
+                        .backgroundColor(.red)
+                        .styledText("Удалить")
+                        .cornerRadius(10)
+                        .heightAnchor(42)
+                        .horizontalAnchor(20)
+                        .topAnchor(20.from(settingsInfoStack.bottomAnchor))
+                        .bottomAnchor(80)
+                    
+                }
+                .edgesAnchors()
+                .widthAnchor(scrollView.widthAnchor)
+                .heightAnchor(scrollView.heightAnchor.orLess)
+                
+            }
+            .topAnchor(0)
+            .bottomAnchor(mainView.bottomAnchor)
+            .horizontalAnchor(0)
+            .widthAnchor(mainView.widthAnchor)
         }
     }
 }

@@ -24,19 +24,20 @@ enum UserPlantDetailComposer {
     static func compose(
         dependencies: UserPlantDetailDependencies,
         flowDependencies: UserPlantDetailFlowDependencies,
-        plant: UserPlant
+        plant: UserPlant,
+        onDelete: @escaping () -> Void
     ) -> UIViewController {
-        let viewModel = UserPlantDetailViewModel(plant: plant, service: dependencies.userService, imageLoader: dependencies.imageLoader)
+        let viewModel = UserPlantDetailViewModel(plant: plant, service: dependencies.userService, imageLoader: dependencies.imageLoader, onDelete: onDelete)
+        let viewController = UserPlantDetailViewController()
         viewModel.onComplete = {
             switch $0 {
                 
-                
+            case .deletePlant(let text):
+                viewController.showTopHint(text: text)
             }
         }
         
         
-        let viewController = UserPlantDetailViewController()
-        //        viewController.bind(to: viewModel).dispose()
         viewController.subscription = LifetimeSubscription { [unowned viewController] in
             viewController.bind(to: viewModel)
         }

@@ -14,7 +14,7 @@ import AVFoundation
 
 public protocol FindedPlantInfoViewControllerBindings {
     var image: Driver<UIImage?> { get }
-
+    
     var infoCells: Driver<[PlantInfoCellViewModel]> { get }
     var addPlant: Binder<Void> { get }
     var isFindPlant: Driver<Bool> { get }
@@ -22,7 +22,7 @@ public protocol FindedPlantInfoViewControllerBindings {
 
 public final class FindedPlantInfoViewController: ViewController {
     private weak var mainImage: UIImageView!
-
+    
     private weak var settingsInfoStack: UIStackView!
     private weak var addButton: Button!
     private weak var notFoundLabel: UILabel!
@@ -73,38 +73,39 @@ private extension FindedPlantInfoViewController {
         return commonView.add {
             scrollView.add {
                 mainView.add {
-            UIImageView()
-                .assign(to: &mainImage)
-                .clipsToBounds(true)
-                .cornerRadius(15)
-                .horizontalAnchor(20)
-                .topAnchor(30.from(mainView.safeAreaLayoutGuide.topAnchor))
-                .heightAnchor(200)
-            
-            
-            UIStackView()
-                .assign(to: &settingsInfoStack)
-                .axis(.vertical)
-                .spacing(20)
-                .horizontalAnchor(20)
-//                .bottomAnchor(40)
-                .topAnchor(30.from(mainImage.bottomAnchor))
-            
-            Button()
-                .assign(to: &addButton)
-                .backgroundColor(.white)
-                .styledText("Добавить в сад")
-                .cornerRadius(8)
-                .heightAnchor(45)
-                .horizontalAnchor(20)
-                .topAnchor(30.from(settingsInfoStack.bottomAnchor))
-        
-            UILabel()
-                .assign(to: &notFoundLabel)
-                .text("растение не нашлось в списке")
-                .isHidden(true)
-                .centerXAnchor()
-                .centerYAnchor()
+                    UIImageView()
+                        .assign(to: &mainImage)
+                        .clipsToBounds(true)
+                        .cornerRadius(15)
+                        .horizontalAnchor(20)
+                        .topAnchor(30)
+                        .heightAnchor(200)
+                    
+                    
+                    UIStackView()
+                        .assign(to: &settingsInfoStack)
+                        .axis(.vertical)
+                        .spacing(20)
+                        .horizontalAnchor(20)
+                    //                .bottomAnchor(40)
+                        .topAnchor(30.from(mainImage.bottomAnchor))
+                    
+                    Button()
+                        .assign(to: &addButton)
+                        .backgroundColor(.white)
+                        .styledText("Добавить в сад")
+                        .cornerRadius(8)
+                        .heightAnchor(45)
+                        .horizontalAnchor(20)
+                        .topAnchor(30.from(settingsInfoStack.bottomAnchor))
+                        .bottomAnchor(30)
+                    
+                    UILabel()
+                        .assign(to: &notFoundLabel)
+                        .text("растение не нашлось в списке")
+                        .isHidden(true)
+                        .centerXAnchor()
+                        .centerYAnchor()
                 }
                 .edgesAnchors()
                 .widthAnchor(scrollView.widthAnchor)
@@ -112,9 +113,9 @@ private extension FindedPlantInfoViewController {
                 
             }
             .topAnchor(0)
-            .bottomAnchor(commonView.bottomAnchor)
+            .bottomAnchor(mainView.bottomAnchor)
             .horizontalAnchor(0)
-            .widthAnchor(commonView.widthAnchor)
+            .widthAnchor(mainView.widthAnchor)
             
         }
     }

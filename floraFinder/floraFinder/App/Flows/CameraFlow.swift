@@ -10,7 +10,8 @@ import FunctionalNavigationFlowKit
 
 func CameraFlow(
     in navigationController: UINavigationController,
-    dependencies: CameraDependencies
+    dependencies: CameraDependencies,
+    type: String
 ) -> Flow {
     PushFlow(
         in: navigationController,
@@ -20,7 +21,8 @@ func CameraFlow(
                 OpenImageFlow(
                     in: navigationController,
                     dependencies: dependencies,
-                    image: image
+                    image: image,
+                    type: type
                 )()
             })
         )

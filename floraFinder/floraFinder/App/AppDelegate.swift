@@ -57,6 +57,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let userInfo = notification.request.content.userInfo
         if response.actionIdentifier == "wateringAction" {
             if let plantID = userInfo["plantID"] as? String {
+                NotificationsService.sendSuccessNotification(for: plantID)
                 appDependencies.userService.wateringPlantBy(id: plantID).subscribe(onCompleted: {
                     NotificationsService.sendSuccessNotification(for: plantID)
                 }).disposed(by: disposeBag)

@@ -10,7 +10,8 @@ import FunctionalNavigationFlowKit
 func OpenImageFlow(
     in navigationController: UINavigationController,
     dependencies: OpenImageDependencies,
-    image: UIImage
+    image: UIImage,
+    type: String
 ) -> Flow {
     PushFlow(
         in: navigationController,
@@ -22,8 +23,16 @@ func OpenImageFlow(
                     dependencies: dependencies,
                     name: name
                 )()
-            }),
-            image: image
+            }, diseaseInfoFlow: { name in
+                FindedDiseaseFlow(
+                    in: navigationController,
+                    dependencies: dependencies,
+                    name: name
+                )()
+            }
+                                                       ),
+            image: image,
+            type: type
         )
     )
 }

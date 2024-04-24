@@ -12,9 +12,10 @@ import RxCocoa
 
 public final class MainScreenViewModel: FlowController {
     public enum Event {
-        case plantInfo(UserPlant)
+        case plantInfo(UserPlant, () -> Void)
         case allPlants(() -> Void)
-
+        case plantWatering(String)
+        case diseaseOpen
     }
     
     public var onComplete: CompletionBlock?
@@ -60,8 +61,13 @@ public final class MainScreenViewModel: FlowController {
     }
     
     func onTapCell(_ model: UserPlant) {
-        complete(.plantInfo(model))
+        complete(.plantInfo(model, onDeletePlant))
     }
+    
+    func onDeletePlant() {
+        setupBindings()
+    }
+    
     func onTapWatering(_ model: UserPlant) {
         let plant = UpdatePlantDTO(
             givenName: model.givenName,
@@ -77,6 +83,7 @@ public final class MainScreenViewModel: FlowController {
         )
         service.updatePlant(model: plant, id: model.id).subscribe(onCompleted: { [weak self] in
 //            self?.onAdd()
+            self?.complete(.plantWatering("Растение полито"))
         })
         .disposed(by: disposeBag)
     }
@@ -84,6 +91,10 @@ public final class MainScreenViewModel: FlowController {
 
 // MARK: - Биндинги для контроллера
 extension MainScreenViewModel: MainScreenViewControllerBindings {
+    public var tapCamera: RxSwift.Binder<Void> {
+        Binder(self) { vm, _ in vm.complete(.diseaseOpen) }
+    }
+    
     public var openAllPlantsList: RxSwift.Binder<Void> {
         Binder(self) { vm, _ in vm.complete(.allPlants({ [weak self] in
             self?.setupBindings()

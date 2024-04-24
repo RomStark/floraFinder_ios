@@ -13,9 +13,10 @@ protocol MainScreenDependencies: ImageLoadingDependencies, UserPlantDetailDepend
 
 struct MainScreenFlowDependencies {
     
-    let plantInfoFlow: (UserPlant) -> ()
+    let plantInfoFlow: (UserPlant, @escaping () -> Void) -> ()
 
     let allPlantFlow: ( @escaping () -> Void) -> ()
+    let openCamera: () -> ()
 }
 
 
@@ -25,18 +26,23 @@ enum MainScreensComposer {
         flowDependencies: MainScreenFlowDependencies
     ) -> UIViewController {
         let viewModel = MainScreenViewModel(service: dependencies.mainService, imageLoader: dependencies.imageLoader)
+        let viewController = MainScreenViewController()
+        
         viewModel.onComplete = {
             switch $0 {
-            case let .plantInfo(model):
-                flowDependencies.plantInfoFlow(model)
+            case .plantInfo(let model, let onDelete):
+                flowDependencies.plantInfoFlow(model, onDelete)
             case let .allPlants(onAdd):
                 flowDependencies.allPlantFlow(onAdd)
+            case let .plantWatering(text):
+                viewController.showTopHint(text: text)
+            case .diseaseOpen:
+                flowDependencies.openCamera()
             }
         }
 
         
-        let viewController = MainScreenViewController()
-//        viewController.bind(to: viewModel).dispose()
+       
         viewController.subscription = LifetimeSubscription { [unowned viewController] in
             viewController.bind(to: viewModel)
         }

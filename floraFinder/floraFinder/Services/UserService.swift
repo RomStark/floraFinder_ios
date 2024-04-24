@@ -18,6 +18,7 @@ public protocol UserService {
     func updatePlant(model: UpdatePlantDTO, id: String) -> Completable
     func wateringPlantBy(id: String) -> Completable
     func sendImage(data: Data) -> Single<ImageResponse>
+    func sendDiseaseImage(data: Data) -> Single<DiseaseResponse>
     func getAllPlants(query: String) -> Single<[Plant]>
     func deletePlant(id: String) -> Completable
 }
@@ -39,6 +40,11 @@ public struct UserServiceImpl: UserService {
     public func sendImage(data: Data) -> Single<ImageResponse> {
         networkClient.requestModel(endpoint: .User.sendImage(data: data))
     }
+    
+    public func sendDiseaseImage(data: Data) -> Single<DiseaseResponse> {
+        networkClient.requestModel(endpoint: .User.sendDiseaseImage(data: data))
+    }
+    
     
     public func login(
         login: String,

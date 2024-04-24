@@ -25,14 +25,17 @@ enum PlantDetailComposer {
             imageLoader: dependencies.imageLoader,
             onAdd: onAdd
         )
+        
+        let viewController = PlantDetailViewController()
+        
         viewModel.onComplete = {
             switch $0 {
-                
+            case .plantAdded(let text):
+                viewController.showTopHint(text: text)
             }
         }
         
         
-        let viewController = PlantDetailViewController()
         viewController.subscription = LifetimeSubscription { [unowned viewController] in
             viewController.bind(to: viewModel)
         }

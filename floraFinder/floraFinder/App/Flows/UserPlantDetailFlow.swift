@@ -11,14 +11,16 @@ import FunctionalNavigationFlowKit
 func UserPlantDetailFlow(
     in navigationController: UINavigationController,
     dependencies: UserPlantDetailDependencies,
-    plant: UserPlant
+    plant: UserPlant,
+    onDelete: @escaping () -> Void
 ) -> Flow {
     PushFlow(
         in: navigationController,
         UserPlantDetailComposer.compose(
             dependencies: dependencies,
             flowDependencies: UserPlantDetailFlowDependencies(),
-            plant: plant
+            plant: plant,
+            onDelete: onDelete
         )
     )
 }
