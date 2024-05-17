@@ -35,15 +35,15 @@ final class AppFlow {
     
     func runAppFlow() {
         FontStyle.registerAll()
-        runPrepareLogout()
+//        runPrepareLogout()
 //        runAuthFlow()
 //        runMainFlow()
-//        switch AppState.currentState {
-//        case .authorized:
-//            runMainFlow()
-//        case .notAuthorized:
-//            runAuthFlow()
-//        }
+        switch AppState.currentState {
+        case .authorized:
+            runMainFlow()
+        case .notAuthorized:
+            runAuthFlow()
+        }
     }
 
 //    // MARK: - Prepare
@@ -60,9 +60,23 @@ final class AppFlow {
 //    }
 
     func runPrepareLogout() {
+        
+        
+        if let savedPassword = UserSettingsStorage.shared.retrievePasswordFromKeychain() {
+            print("Извлеченный пароль из Keychain: \(savedPassword)")
+        } else {
+            print("Не удалось извлечь пароль из Keychain")
+        }
+
         UserSettingsStorage.shared.clear(key: .isAuthorized)
         UserSettingsStorage.shared.clear(key: .password)
         UserSettingsStorage.shared.clear(key: .login)
+        let c: Bool? = UserSettingsStorage.shared.retrieve(key: .isAuthorized)
+        print(c)
+        let d: String? = UserSettingsStorage.shared.retrieve(key: .login)
+        print(d)
+        let e:String? = UserSettingsStorage.shared.retrieve(key: .login)
+        print(e)
         runAuthFlow()
     }
 
@@ -72,18 +86,23 @@ final class AppFlow {
             return
         }
         
+        
         MainFlow(
             window: window,
             dependencies: appDependencies,
             logoutFlow: { [weak self] in self?.runPrepareLogout() }
         )()
-        
-//        requestPushAuthorization()
     }
 
     func runAuthFlow() {
         guard let window else {
             return
+        }
+        
+        let longitude: Float? = UserSettingsStorage.shared.retrieve(key: .longitude)
+        print(longitude)
+        if (longitude == 0.0) {
+            LocationManager.shared.requestLocation()
         }
         
         SignInFlow(
@@ -95,7 +114,7 @@ final class AppFlow {
 
     // MARK: - Finish
     private func finishAuth() {
-        UserSettingsStorage.shared.save(key: .isAuthorized, value: true).subscribe(onCompleted: { [weak self] in
+        UserSettingsStorage.shared.saveCompletable(key: .isAuthorized, value: true).subscribe(onCompleted: { [weak self] in
             self?.runMainFlow()
         }).disposed(by: disposeBag)
     }

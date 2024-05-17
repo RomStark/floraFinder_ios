@@ -79,7 +79,7 @@ private extension PlantByPhotoViewController {
             let input = try AVCaptureDeviceInput(device: captureDevice!)
             session.addInput(input)
         } catch {
-            print("LHljhljhljhkh")
+            
         }
         session.addOutput(photoOutput)
         
@@ -122,8 +122,7 @@ extension PlantByPhotoViewController: AVCapturePhotoCaptureDelegate {
             print("Error capturing photo: \(error?.localizedDescription ?? "Unknown error")")
             return
         }
-        print("image sdelali")
-        print(image.description)
+        
         // Display captured image
         imageRelay.accept(image)
     }

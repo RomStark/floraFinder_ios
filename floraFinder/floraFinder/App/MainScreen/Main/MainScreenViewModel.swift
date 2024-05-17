@@ -16,6 +16,8 @@ public final class MainScreenViewModel: FlowController {
         case allPlants(() -> Void)
         case plantWatering(String)
         case diseaseOpen
+        case logOut
+        case drugs
     }
     
     public var onComplete: CompletionBlock?
@@ -33,7 +35,6 @@ public final class MainScreenViewModel: FlowController {
     public init(service: MainService, imageLoader: @escaping ImageLoader) {
         self.service = service
         self.imageLoader = imageLoader
-        
         setupBindings()
     }
     
@@ -91,6 +92,14 @@ public final class MainScreenViewModel: FlowController {
 
 // MARK: - Биндинги для контроллера
 extension MainScreenViewModel: MainScreenViewControllerBindings {
+    public var tapDrugs: RxSwift.Binder<Void> {
+        Binder(self) { vm, _ in vm.complete(.drugs) }
+    }
+    
+    public var tapLogOut: RxSwift.Binder<Void> {
+        Binder(self) { vm, _ in vm.complete(.logOut) }
+    }
+    
     public var tapCamera: RxSwift.Binder<Void> {
         Binder(self) { vm, _ in vm.complete(.diseaseOpen) }
     }

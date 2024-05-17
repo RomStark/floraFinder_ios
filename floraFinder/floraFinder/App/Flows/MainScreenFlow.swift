@@ -15,8 +15,10 @@ func MainScreenFlow(
 ) -> Flow {
     PushFlow(
         in: navigationController,
+        configuration: .combine([.title("Мой Сад")]),
         MainScreensComposer.compose(
             dependencies: dependencies,
+            onLogout: onLogout,
             flowDependencies: MainScreenFlowDependencies(
                 plantInfoFlow: { plant, onDelete  in
                     UserPlantDetailFlow(
@@ -32,7 +34,16 @@ func MainScreenFlow(
                         dependencies: dependencies,
                         onAdd: onAdd
                     )()
-                }, openCamera: {CameraFlow(in: navigationController, dependencies: dependencies, type: "disease")()}
+                }, openCamera: {CameraFlow(in: navigationController, dependencies: dependencies, type: "disease")()},
+                settingFlow: {
+                    SettingsFlow(in: navigationController,
+                                 dependencies: dependencies,
+                                 onLogOut: onLogout)()
+                },
+                userDrugsFlow: {
+                    UserDrugsFlow(in: navigationController,
+                                  dependencies: dependencies)()
+                }
             )
         )
     )

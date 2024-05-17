@@ -79,7 +79,7 @@ extension PlantsListViewModel: PlantsListViewControllerBindings {
     
     public var searchQuery: RxSwift.Binder<String> {
         Binder(self) { vm, query in
-            print(query)
+            
             vm.service.getAllPlants(query: query)
                 .map({ (plants) -> [PlantCellViewModel] in
                     let models = plants.map { plant in

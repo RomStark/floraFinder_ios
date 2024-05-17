@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import CoreML
 
 
 public final class OpenImageViewModel: FlowController {
@@ -35,8 +36,8 @@ public final class OpenImageViewModel: FlowController {
     private func sendImage() {
         service.sendImage(data: mainImageRelay.value.jpegData(compressionQuality: 1.0)!)
             .subscribe(onSuccess: { [weak self] response in
-                print(response.real_name)
-//                self?.complete(.openPlantInfo(response.real_name.replacingOccurrences(of: "_", with: " ")))
+                
+                //                self?.complete(.openPlantInfo(response.real_name.replacingOccurrences(of: "_", with: " ")))
                 if let russianName = self?.russDict[response.real_name] {
                     print("Русское название для Anthurium_andraeanum: \(russianName)")
                     self?.complete(.openPlantInfo(russianName))
@@ -48,10 +49,15 @@ public final class OpenImageViewModel: FlowController {
     }
     
     private func sendDiseaseImage() {
-        service.sendDiseaseImage(data: mainImageRelay.value.jpegData(compressionQuality: 1.0)!)
-            .subscribe(onSuccess: { [weak self] response in
-                self?.complete(.openDiseaseInfo(response.disease))
-            }).disposed(by: disposeBag)
+        PlantDetectService.shared.detectDisease(input: mainImageRelay.value)
+            .subscribe { [weak self] disease in
+                self?.complete(.openDiseaseInfo("бактериальная гниль"))
+            }.disposed(by: disposeBag)
+        
+//        service.sendDiseaseImage(data: mainImageRelay.value.jpegData(compressionQuality: 1.0)!)
+//            .subscribe(onSuccess: { [weak self] response in
+//                self?.complete(.openDiseaseInfo(response.disease))
+//            }).disposed(by: disposeBag)
     }
 }
 

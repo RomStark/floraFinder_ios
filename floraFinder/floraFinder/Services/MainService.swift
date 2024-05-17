@@ -11,9 +11,14 @@ public protocol MainService {
     func getAllPlants(query: String) -> Single<[Plant]>
     func getAllUserPlants() -> Single<[UserPlant]>
     func updatePlant(model: UpdatePlantDTO, id: String) -> Completable
+    func getUserDrugs() -> Single<[Drugs]>
 }
 
 public struct MainServiceImpl: MainService {
+    public func getUserDrugs() -> RxSwift.Single<[Drugs]> {
+        networkClient.requestModel(endpoint: .Main.allUserDrugs())
+    }
+    
     public func getAllUserPlants() -> RxSwift.Single<[UserPlant]> {
         networkClient.requestModel(endpoint: .Main.allUserPlants())
     }

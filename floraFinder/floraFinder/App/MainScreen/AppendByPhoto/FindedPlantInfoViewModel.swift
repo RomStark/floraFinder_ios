@@ -22,7 +22,6 @@ public final class FindedPlantInfoViewModel: FlowController {
     private let imageRelay = BehaviorRelay<UIImage?>(value: nil)
     private let infoCellsRelay = BehaviorRelay<[PlantInfoCellViewModel]>(value: [])
     private let isGetPlantRelay = BehaviorRelay<Bool>(value: false)
-    
     private let service: UserService
 //    private let plantModel: Plant
     private let imageLoader: ImageLoader
@@ -33,8 +32,6 @@ public final class FindedPlantInfoViewModel: FlowController {
         self.service = service
         self.imageLoader = imageLoader
         service.getAllPlants(query: name).subscribe(onSuccess: { [weak self] plants in
-            print(plants)
-            print(plants[0].name)
             if plants.count == 1 {
                 self?.plant = plants[0]
                 self?.infoCellsRelay.accept((self?.cellsViewModels(plant: (self?.plant)!))!)
@@ -74,7 +71,7 @@ private func cellsViewModels(plant: Plant) -> [PlantInfoCellViewModel] {
         )
         service.addPlant(model: model).subscribe(onSuccess: { [weak self] userPlant in
 //            self?.onAdd()
-            NotificationsService.createWateringNotification(identifier: userPlant.id, plant: userPlant.givenName, triggerTime: userPlant.water_interval)
+            NotificationsService.createWateringNotification(plant: userPlant)
         })
         .disposed(by: disposeBag)
     }
@@ -99,4 +96,3 @@ extension FindedPlantInfoViewModel: FindedPlantInfoViewControllerBindings {
         infoCellsRelay.asDriver(onErrorJustReturn: [])
     }
 }
-

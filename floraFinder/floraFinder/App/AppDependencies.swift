@@ -26,7 +26,7 @@ final class AppDependencies {
         let login: String? = UserSettingsStorage.shared.retrieve(key: .login)
         self.networkClient = MoyaApiClient(
             baseUrl: URL(string: "http://192.168.1.105:8080")!,
-            plugins: [BasicAuthPlugin(username: login, password: password)]
+            plugins: [BasicAuthPlugin(passwordClosure: UserSettingsStorage.shared.retrievePasswordFromKeychain, usernameClosure: UserSettingsStorage.shared.retrieveLogin)]
         )
  
     }

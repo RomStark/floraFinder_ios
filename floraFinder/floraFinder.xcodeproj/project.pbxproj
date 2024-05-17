@@ -11,7 +11,6 @@
 		003CF2392BCD9F920025B6C4 /* PlantByPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2382BCD9F920025B6C4 /* PlantByPhotoViewModel.swift */; };
 		003CF23B2BCDB16E0025B6C4 /* CameraFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF23A2BCDB16E0025B6C4 /* CameraFlow.swift */; };
 		003CF23D2BCDB18E0025B6C4 /* CameraComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF23C2BCDB18E0025B6C4 /* CameraComposer.swift */; };
-		003CF24B2BCE081A0025B6C4 /* modelForPlant.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 003CF24A2BCE081A0025B6C4 /* modelForPlant.mlpackage */; };
 		003CF24D2BCF5E870025B6C4 /* OpenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF24C2BCF5E870025B6C4 /* OpenImageViewController.swift */; };
 		003CF24F2BCF5E930025B6C4 /* OpenImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF24E2BCF5E930025B6C4 /* OpenImageViewModel.swift */; };
 		003CF2512BCF60200025B6C4 /* OpenImageFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003CF2502BCF60200025B6C4 /* OpenImageFlow.swift */; };
@@ -83,6 +82,29 @@
 		0053B14B2BAD5EF500611FE2 /* PlantDetailComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053B14A2BAD5EF500611FE2 /* PlantDetailComposer.swift */; };
 		0053B14D2BAD5F9300611FE2 /* PlantDetailFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053B14C2BAD5F9300611FE2 /* PlantDetailFlow.swift */; };
 		00760BD42BCC510700D3E879 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00760BD32BCC510700D3E879 /* NotificationsService.swift */; };
+		00C692842BF4147000A9BDA6 /* PlantDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692832BF4147000A9BDA6 /* PlantDataManager.swift */; };
+		00C692892BF4173900A9BDA6 /* plantnet300K_species_names.json in Resources */ = {isa = PBXBuildFile; fileRef = 00C692882BF4173900A9BDA6 /* plantnet300K_species_names.json */; };
+		00C6928B2BF4477900A9BDA6 /* PlantDetectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C6928A2BF4477900A9BDA6 /* PlantDetectService.swift */; };
+		00C6928F2BF4503900A9BDA6 /* PlantModel.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 00C6928E2BF4503900A9BDA6 /* PlantModel.mlpackage */; };
+		00C692912BF450B400A9BDA6 /* DiseaseModel.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 00C692902BF450B400A9BDA6 /* DiseaseModel.mlpackage */; };
+		00C692932BF48B7F00A9BDA6 /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692922BF48B7F00A9BDA6 /* Disease.swift */; };
+		00C692952BF48BFD00A9BDA6 /* Drugs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692942BF48BFD00A9BDA6 /* Drugs.swift */; };
+		00C692982BF4929F00A9BDA6 /* DrugsInfoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692972BF4929F00A9BDA6 /* DrugsInfoCellView.swift */; };
+		00C6929B2BF4A67700A9BDA6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C6929A2BF4A67700A9BDA6 /* SettingsViewController.swift */; };
+		00C6929D2BF4A68A00A9BDA6 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C6929C2BF4A68A00A9BDA6 /* SettingsViewModel.swift */; };
+		00C6929F2BF4ADD300A9BDA6 /* SettingsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C6929E2BF4ADD300A9BDA6 /* SettingsFlow.swift */; };
+		00C692A12BF4AEFD00A9BDA6 /* SettingsComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692A02BF4AEFD00A9BDA6 /* SettingsComposer.swift */; };
+		00C692A32BF5004300A9BDA6 /* WeatherInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692A22BF5004300A9BDA6 /* WeatherInfoModel.swift */; };
+		00C692A52BF50FC300A9BDA6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692A42BF50FC300A9BDA6 /* LocationManager.swift */; };
+		00C692A72BF5767F00A9BDA6 /* DrugsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692A62BF5767F00A9BDA6 /* DrugsListViewController.swift */; };
+		00C692A92BF5768D00A9BDA6 /* DrugsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692A82BF5768D00A9BDA6 /* DrugsListViewModel.swift */; };
+		00C692AB2BF577BF00A9BDA6 /* DrugsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692AA2BF577BF00A9BDA6 /* DrugsCollectionView.swift */; };
+		00C692AD2BF57B5600A9BDA6 /* UserDrugsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692AC2BF57B5600A9BDA6 /* UserDrugsFlow.swift */; };
+		00C692AF2BF57B8100A9BDA6 /* UserDrugsComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692AE2BF57B8100A9BDA6 /* UserDrugsComposer.swift */; };
+		00C692B12BF57D3400A9BDA6 /* DrugsInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692B02BF57D3400A9BDA6 /* DrugsInfoViewModel.swift */; };
+		00C692B32BF57EFE00A9BDA6 /* DrugsInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692B22BF57EFE00A9BDA6 /* DrugsInfoViewController.swift */; };
+		00C692B52BF5801D00A9BDA6 /* DrugsInfoComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692B42BF5801D00A9BDA6 /* DrugsInfoComposer.swift */; };
+		00C692B72BF580B900A9BDA6 /* DrugsInfoFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C692B62BF580B900A9BDA6 /* DrugsInfoFlow.swift */; };
 		7A56899F5F451674F84E66E5 /* Pods_floraFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA75633133E33B5161CBF69A /* Pods_floraFinder.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +113,6 @@
 		003CF2382BCD9F920025B6C4 /* PlantByPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantByPhotoViewModel.swift; sourceTree = "<group>"; };
 		003CF23A2BCDB16E0025B6C4 /* CameraFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFlow.swift; sourceTree = "<group>"; };
 		003CF23C2BCDB18E0025B6C4 /* CameraComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraComposer.swift; sourceTree = "<group>"; };
-		003CF24A2BCE081A0025B6C4 /* modelForPlant.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = modelForPlant.mlpackage; path = ../../../../modelForPlant.mlpackage; sourceTree = "<group>"; };
 		003CF24C2BCF5E870025B6C4 /* OpenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenImageViewController.swift; sourceTree = "<group>"; };
 		003CF24E2BCF5E930025B6C4 /* OpenImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenImageViewModel.swift; sourceTree = "<group>"; };
 		003CF2502BCF60200025B6C4 /* OpenImageFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenImageFlow.swift; sourceTree = "<group>"; };
@@ -165,6 +186,29 @@
 		0053B14A2BAD5EF500611FE2 /* PlantDetailComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailComposer.swift; sourceTree = "<group>"; };
 		0053B14C2BAD5F9300611FE2 /* PlantDetailFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailFlow.swift; sourceTree = "<group>"; };
 		00760BD32BCC510700D3E879 /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
+		00C692832BF4147000A9BDA6 /* PlantDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDataManager.swift; sourceTree = "<group>"; };
+		00C692882BF4173900A9BDA6 /* plantnet300K_species_names.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = plantnet300K_species_names.json; sourceTree = "<group>"; };
+		00C6928A2BF4477900A9BDA6 /* PlantDetectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetectService.swift; sourceTree = "<group>"; };
+		00C6928E2BF4503900A9BDA6 /* PlantModel.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = PlantModel.mlpackage; sourceTree = "<group>"; };
+		00C692902BF450B400A9BDA6 /* DiseaseModel.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = DiseaseModel.mlpackage; sourceTree = "<group>"; };
+		00C692922BF48B7F00A9BDA6 /* Disease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disease.swift; sourceTree = "<group>"; };
+		00C692942BF48BFD00A9BDA6 /* Drugs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drugs.swift; sourceTree = "<group>"; };
+		00C692972BF4929F00A9BDA6 /* DrugsInfoCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsInfoCellView.swift; sourceTree = "<group>"; };
+		00C6929A2BF4A67700A9BDA6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		00C6929C2BF4A68A00A9BDA6 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		00C6929E2BF4ADD300A9BDA6 /* SettingsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlow.swift; sourceTree = "<group>"; };
+		00C692A02BF4AEFD00A9BDA6 /* SettingsComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComposer.swift; sourceTree = "<group>"; };
+		00C692A22BF5004300A9BDA6 /* WeatherInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoModel.swift; sourceTree = "<group>"; };
+		00C692A42BF50FC300A9BDA6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		00C692A62BF5767F00A9BDA6 /* DrugsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsListViewController.swift; sourceTree = "<group>"; };
+		00C692A82BF5768D00A9BDA6 /* DrugsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsListViewModel.swift; sourceTree = "<group>"; };
+		00C692AA2BF577BF00A9BDA6 /* DrugsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsCollectionView.swift; sourceTree = "<group>"; };
+		00C692AC2BF57B5600A9BDA6 /* UserDrugsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDrugsFlow.swift; sourceTree = "<group>"; };
+		00C692AE2BF57B8100A9BDA6 /* UserDrugsComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDrugsComposer.swift; sourceTree = "<group>"; };
+		00C692B02BF57D3400A9BDA6 /* DrugsInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsInfoViewModel.swift; sourceTree = "<group>"; };
+		00C692B22BF57EFE00A9BDA6 /* DrugsInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsInfoViewController.swift; sourceTree = "<group>"; };
+		00C692B42BF5801D00A9BDA6 /* DrugsInfoComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsInfoComposer.swift; sourceTree = "<group>"; };
+		00C692B62BF580B900A9BDA6 /* DrugsInfoFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsInfoFlow.swift; sourceTree = "<group>"; };
 		14C07756A604CDEF6FD21801 /* Pods-floraFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-floraFinder.debug.xcconfig"; path = "Target Support Files/Pods-floraFinder/Pods-floraFinder.debug.xcconfig"; sourceTree = "<group>"; };
 		614520C343032E32A3D0245F /* Pods-floraFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-floraFinder.release.xcconfig"; path = "Target Support Files/Pods-floraFinder/Pods-floraFinder.release.xcconfig"; sourceTree = "<group>"; };
 		BA75633133E33B5161CBF69A /* Pods_floraFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_floraFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +235,7 @@
 				003CF24E2BCF5E930025B6C4 /* OpenImageViewModel.swift */,
 				003CF2562BCFACF50025B6C4 /* FindedPlantInfoViewModel.swift */,
 				003CF2582BCFAD060025B6C4 /* FindedPlantInfoViewController.swift */,
+				00C692832BF4147000A9BDA6 /* PlantDataManager.swift */,
 			);
 			path = AppendByPhoto;
 			sourceTree = "<group>";
@@ -216,11 +261,13 @@
 		0053B0BE2BAADEDB00611FE2 /* floraFinder */ = {
 			isa = PBXGroup;
 			children = (
-				003CF24A2BCE081A0025B6C4 /* modelForPlant.mlpackage */,
+				00C6928E2BF4503900A9BDA6 /* PlantModel.mlpackage */,
+				00C692902BF450B400A9BDA6 /* DiseaseModel.mlpackage */,
 				0053B0D32BAAF8F600611FE2 /* Network */,
 				0053B0F22BAB8DC900611FE2 /* UIComponents */,
 				0053B0E72BAB24CC00611FE2 /* Helpers */,
 				0053B0E32BAB214C00611FE2 /* App */,
+				00C692852BF4166A00A9BDA6 /* Resources */,
 				0053B0DD2BAAFE3D00611FE2 /* Services */,
 				0053B0C82BAADEE100611FE2 /* Assets.xcassets */,
 				0053B0CA2BAADEE100611FE2 /* LaunchScreen.storyboard */,
@@ -258,6 +305,7 @@
 				0053B1102BAC3D0300611FE2 /* MainService.swift */,
 				0053B1142BAC415200611FE2 /* Services.swift */,
 				0053B1162BAC477600611FE2 /* KingFisherImageLoader.swift */,
+				00C6928A2BF4477900A9BDA6 /* PlantDetectService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -270,6 +318,9 @@
 				0053B1332BACBB2B00611FE2 /* UserPlant.swift */,
 				003CF2542BCF71FA0025B6C4 /* ImageResponse.swift */,
 				0047389F2BD91291004E1444 /* DiseaseResponse.swift */,
+				00C692922BF48B7F00A9BDA6 /* Disease.swift */,
+				00C692942BF48BFD00A9BDA6 /* Drugs.swift */,
+				00C692A22BF5004300A9BDA6 /* WeatherInfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,6 +353,9 @@
 				003CF2502BCF60200025B6C4 /* OpenImageFlow.swift */,
 				0047389B2BCFF30E004E1444 /* FindedPlantFlow.swift */,
 				004738A12BD91725004E1444 /* FindedDiseaseFlow.swift */,
+				00C6929E2BF4ADD300A9BDA6 /* SettingsFlow.swift */,
+				00C692AC2BF57B5600A9BDA6 /* UserDrugsFlow.swift */,
+				00C692B62BF580B900A9BDA6 /* DrugsInfoFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -317,6 +371,7 @@
 				0053B10A2BAC276D00611FE2 /* ViewController.swift */,
 				0053B10C2BAC278700611FE2 /* Subscription.swift */,
 				0053B1262BAC741900611FE2 /* Colors.swift */,
+				00C692A42BF50FC300A9BDA6 /* LocationManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -352,6 +407,9 @@
 				003CF2522BCF603A0025B6C4 /* OpenImageComposer.swift */,
 				0047389D2BCFF32A004E1444 /* FindedPlantComposer.swift */,
 				004738A32BD91748004E1444 /* FindedDiseaseComposer.swift */,
+				00C692A02BF4AEFD00A9BDA6 /* SettingsComposer.swift */,
+				00C692AE2BF57B8100A9BDA6 /* UserDrugsComposer.swift */,
+				00C692B42BF5801D00A9BDA6 /* DrugsInfoComposer.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -359,6 +417,8 @@
 		0053B1022BAC1D0200611FE2 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				00C692992BF4A66300A9BDA6 /* Settings */,
+				00C692962BF4928200A9BDA6 /* Drugs */,
 				003CF2352BCD9F5D0025B6C4 /* AppendByPhoto */,
 				0053B1282BACB66E00611FE2 /* AppendPlantScreen */,
 				0053B11C2BAC5D2C00611FE2 /* UserPlantDetailScreen */,
@@ -410,6 +470,36 @@
 				0053B13C2BACBBEC00611FE2 /* SignInScreenViewController.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		00C692852BF4166A00A9BDA6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00C692882BF4173900A9BDA6 /* plantnet300K_species_names.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		00C692962BF4928200A9BDA6 /* Drugs */ = {
+			isa = PBXGroup;
+			children = (
+				00C692972BF4929F00A9BDA6 /* DrugsInfoCellView.swift */,
+				00C692A62BF5767F00A9BDA6 /* DrugsListViewController.swift */,
+				00C692A82BF5768D00A9BDA6 /* DrugsListViewModel.swift */,
+				00C692AA2BF577BF00A9BDA6 /* DrugsCollectionView.swift */,
+				00C692B02BF57D3400A9BDA6 /* DrugsInfoViewModel.swift */,
+				00C692B22BF57EFE00A9BDA6 /* DrugsInfoViewController.swift */,
+			);
+			path = Drugs;
+			sourceTree = "<group>";
+		};
+		00C692992BF4A66300A9BDA6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				00C6929A2BF4A67700A9BDA6 /* SettingsViewController.swift */,
+				00C6929C2BF4A68A00A9BDA6 /* SettingsViewModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		3C20B64CCE7F52A308F1FB52 /* Pods */ = {
@@ -489,6 +579,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00C692892BF4173900A9BDA6 /* plantnet300K_species_names.json in Resources */,
 				0053B0CC2BAADEE100611FE2 /* LaunchScreen.storyboard in Resources */,
 				0053B0C92BAADEE100611FE2 /* Assets.xcassets in Resources */,
 			);
@@ -543,10 +634,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00C692B12BF57D3400A9BDA6 /* DrugsInfoViewModel.swift in Sources */,
 				0053B0FE2BAC1C7500611FE2 /* MainScreenFlow.swift in Sources */,
 				0053B12A2BACB69C00611FE2 /* PlantsListViewModel.swift in Sources */,
 				0053B1392BACBBA900611FE2 /* LoginScreenViewController.swift in Sources */,
 				0053B1272BAC741900611FE2 /* Colors.swift in Sources */,
+				00C6928F2BF4503900A9BDA6 /* PlantModel.mlpackage in Sources */,
 				0053B1192BAC5D1800611FE2 /* UserPlantDetailViewModel.swift in Sources */,
 				0053B14B2BAD5EF500611FE2 /* PlantDetailComposer.swift in Sources */,
 				0053B1042BAC1D1200611FE2 /* MainScreenViewModel.swift in Sources */,
@@ -554,26 +647,35 @@
 				0053B1172BAC477600611FE2 /* KingFisherImageLoader.swift in Sources */,
 				003CF23D2BCDB18E0025B6C4 /* CameraComposer.swift in Sources */,
 				003CF24F2BCF5E930025B6C4 /* OpenImageViewModel.swift in Sources */,
+				00C692B72BF580B900A9BDA6 /* DrugsInfoFlow.swift in Sources */,
+				00C692AF2BF57B8100A9BDA6 /* UserDrugsComposer.swift in Sources */,
 				0053B0EB2BAB320A00611FE2 /* AppDependencies.swift in Sources */,
 				003CF24D2BCF5E870025B6C4 /* OpenImageViewController.swift in Sources */,
 				0047389C2BCFF30E004E1444 /* FindedPlantFlow.swift in Sources */,
 				0053B1072BAC1D6B00611FE2 /* FlowController.swift in Sources */,
+				00C692A92BF5768D00A9BDA6 /* DrugsListViewModel.swift in Sources */,
+				00C692952BF48BFD00A9BDA6 /* Drugs.swift in Sources */,
 				0053B1092BAC1F8300611FE2 /* MainScreenViewController.swift in Sources */,
-				003CF24B2BCE081A0025B6C4 /* modelForPlant.mlpackage in Sources */,
 				003CF2572BCFACF50025B6C4 /* FindedPlantInfoViewModel.swift in Sources */,
 				0053B1302BACB6DC00611FE2 /* PlantDetailViewController.swift in Sources */,
 				0053B1372BACBB9A00611FE2 /* LoginScreenViewModel.swift in Sources */,
+				00C692842BF4147000A9BDA6 /* PlantDataManager.swift in Sources */,
 				0053B1132BAC3DAB00611FE2 /* MainEndpoint.swift in Sources */,
 				003CF2512BCF60200025B6C4 /* OpenImageFlow.swift in Sources */,
 				0053B10B2BAC276D00611FE2 /* ViewController.swift in Sources */,
 				0053B0D92BAAF9FD00611FE2 /* MoyaClient.swift in Sources */,
 				0053B12E2BACB6C500611FE2 /* PlantInfoViewModel.swift in Sources */,
+				00C692932BF48B7F00A9BDA6 /* Disease.swift in Sources */,
 				003CF23B2BCDB16E0025B6C4 /* CameraFlow.swift in Sources */,
 				0053B0EF2BAB8C3400611FE2 /* MainFlow.swift in Sources */,
 				0053B1212BAC606700611FE2 /* UserPlantDetailFlow.swift in Sources */,
 				0053B0F42BAB8DDA00611FE2 /* Button.swift in Sources */,
 				0053B0DC2BAAFDF200611FE2 /* UserEndpoint.swift in Sources */,
+				00C692B32BF57EFE00A9BDA6 /* DrugsInfoViewController.swift in Sources */,
+				00C6928B2BF4477900A9BDA6 /* PlantDetectService.swift in Sources */,
 				004738A42BD91748004E1444 /* FindedDiseaseComposer.swift in Sources */,
+				00C6929F2BF4ADD300A9BDA6 /* SettingsFlow.swift in Sources */,
+				00C6929B2BF4A67700A9BDA6 /* SettingsViewController.swift in Sources */,
 				0053B11F2BAC5E0300611FE2 /* UserPlantsCollectionView.swift in Sources */,
 				0053B1252BAC650500611FE2 /* PlantInfoCell.swift in Sources */,
 				0053B0F82BAC17F200611FE2 /* FontStyle.swift in Sources */,
@@ -583,14 +685,20 @@
 				003CF2372BCD9F820025B6C4 /* PlantByPhotoViewController.swift in Sources */,
 				0053B0E62BAB216F00611FE2 /* AppFlow.swift in Sources */,
 				0053B13B2BACBBD500611FE2 /* SignInScreenViewModel.swift in Sources */,
+				00C692A72BF5767F00A9BDA6 /* DrugsListViewController.swift in Sources */,
+				00C692B52BF5801D00A9BDA6 /* DrugsInfoComposer.swift in Sources */,
+				00C692A52BF50FC300A9BDA6 /* LocationManager.swift in Sources */,
 				0053B1472BAD5DC300611FE2 /* AllPlantsFlow.swift in Sources */,
 				0053B0C02BAADEDB00611FE2 /* AppDelegate.swift in Sources */,
 				00760BD42BCC510700D3E879 /* NotificationsService.swift in Sources */,
 				0053B14D2BAD5F9300611FE2 /* PlantDetailFlow.swift in Sources */,
 				0053B1322BACB82900611FE2 /* PlantsCollectionView.swift in Sources */,
+				00C692AD2BF57B5600A9BDA6 /* UserDrugsFlow.swift in Sources */,
 				0047389E2BCFF32A004E1444 /* FindedPlantComposer.swift in Sources */,
 				0053B1152BAC415200611FE2 /* Services.swift in Sources */,
 				0053B0F12BAB8D7E00611FE2 /* NavigationController.swift in Sources */,
+				00C692A12BF4AEFD00A9BDA6 /* SettingsComposer.swift in Sources */,
+				00C6929D2BF4A68A00A9BDA6 /* SettingsViewModel.swift in Sources */,
 				0053B0FA2BAC181000611FE2 /* FontStylable.swift in Sources */,
 				0053B1342BACBB2B00611FE2 /* UserPlant.swift in Sources */,
 				0053B0DF2BAAFE4D00611FE2 /* UserService.swift in Sources */,
@@ -601,14 +709,18 @@
 				003CF2592BCFAD060025B6C4 /* FindedPlantInfoViewController.swift in Sources */,
 				0053B11B2BAC5D2700611FE2 /* UserPlantDetailViewController.swift in Sources */,
 				004738A82BD91B7B004E1444 /* DiseaseInfoViewController.swift in Sources */,
+				00C692982BF4929F00A9BDA6 /* DrugsInfoCellView.swift in Sources */,
+				00C692912BF450B400A9BDA6 /* DiseaseModel.mlpackage in Sources */,
 				003CF2552BCF71FA0025B6C4 /* ImageResponse.swift in Sources */,
 				0053B1412BACD2C600611FE2 /* SignInComposer.swift in Sources */,
+				00C692A32BF5004300A9BDA6 /* WeatherInfoModel.swift in Sources */,
 				004738A62BD91AA9004E1444 /* DiseaseInfoViewModel.swift in Sources */,
 				0053B1432BAD14F200611FE2 /* LoginFlow.swift in Sources */,
 				004738A22BD91725004E1444 /* FindedDiseaseFlow.swift in Sources */,
 				0053B1232BAC608900611FE2 /* UserPlantDetailComposer.swift in Sources */,
 				0053B0ED2BAB334900611FE2 /* Extensions.swift in Sources */,
 				0053B1492BAD5DF000611FE2 /* AllPlantsComposer.swift in Sources */,
+				00C692AB2BF577BF00A9BDA6 /* DrugsCollectionView.swift in Sources */,
 				0053B0E22BAAFF3600611FE2 /* UserModel.swift in Sources */,
 				0053B0E92BAB24DC00611FE2 /* UserSettingsStorage.swift in Sources */,
 				0053B12C2BACB6AD00611FE2 /* PlantsListViewController.swift in Sources */,
@@ -759,10 +871,12 @@
 				DEVELOPMENT_TEAM = X58ZVA4AH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = floraFinder/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Приложению нужен доступ к камере";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -787,10 +901,12 @@
 				DEVELOPMENT_TEAM = X58ZVA4AH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = floraFinder/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Приложению нужен доступ к камере";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

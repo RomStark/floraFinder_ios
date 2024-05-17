@@ -14,6 +14,7 @@ func FindedDiseaseFlow(
 ) -> Flow {
     PushFlow(
         in: navigationController,
+        configuration: .hidesBottomBarWhenPushed,
         FindedDiseaseComposer.compose(
             dependencies: dependencies,
             flowDependencies: FindedDiseaseFlowDependencies(),

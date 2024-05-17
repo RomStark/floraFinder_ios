@@ -26,6 +26,14 @@ public extension NetworkEndpoint {
                 isAuthorizationRequired: true
             )
         }
+        
+        public static func allUserDrugs() -> NetworkEndpoint {
+            NetworkEndpoint(
+                method: .get,
+                path: "users/drugs",
+                isAuthorizationRequired: true
+            )
+        }
     }
 }
 

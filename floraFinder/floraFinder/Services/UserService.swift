@@ -21,9 +21,14 @@ public protocol UserService {
     func sendDiseaseImage(data: Data) -> Single<DiseaseResponse>
     func getAllPlants(query: String) -> Single<[Plant]>
     func deletePlant(id: String) -> Completable
+    func getDisease(query: String) -> Single<Disease>
+    func addDrug(id: String) -> Completable
 }
 
 public struct UserServiceImpl: UserService {
+    public func addDrug(id: String) -> RxSwift.Completable {
+        networkClient.requestCompletable(endpoint: .User.addDrugs(model: AddDrugDTO(parentDrugId: id)))
+    }
     
     private let networkClient: NetworkClient
     
@@ -79,6 +84,10 @@ public struct UserServiceImpl: UserService {
     
     public func wateringPlantBy(id: String) -> Completable {
         networkClient.requestCompletable(endpoint: .User.wateringPlantById(id: id))
+    }
+    
+    public func getDisease(query: String) -> Single<Disease> {
+        networkClient.requestModel(endpoint: .User.getDisease(query: query))
     }
     
     public func logout() -> Completable {

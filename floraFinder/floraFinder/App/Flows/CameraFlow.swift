@@ -15,6 +15,7 @@ func CameraFlow(
 ) -> Flow {
     PushFlow(
         in: navigationController,
+//        configuration: .combine([.hidesBottomBarWhenPushed, .title(Strings.Tab.notifications)]),
         CameraComposer.compose(
             dependencies: dependencies,
             flowDependencies: CameraFlowDependencies(openImageFlow: { image in

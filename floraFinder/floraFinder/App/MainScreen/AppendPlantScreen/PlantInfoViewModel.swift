@@ -66,7 +66,7 @@ public final class PlantDetailViewModel: FlowController {
         service.addPlant(model: model).subscribe(onSuccess: { [weak self] userPlant in
             self?.onAdd()
             self?.complete(.plantAdded("растение добавлено"))
-            NotificationsService.createWateringNotification(identifier: userPlant.id, plant: userPlant.givenName, triggerTime: userPlant.water_interval)
+            NotificationsService.createWateringNotification(plant: userPlant)
         })
         .disposed(by: disposeBag)
     }

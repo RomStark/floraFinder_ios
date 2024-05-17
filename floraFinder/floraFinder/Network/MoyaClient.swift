@@ -11,7 +11,7 @@ import RxSwift
 
 
 public final class MoyaApiClient: NSObject, NetworkClient {
-    public typealias TokenProvider = () -> String?
+//    public typealias TokenProvider = () -> String?
     
     private var provider: MoyaProvider<MoyaTarget>!
     
@@ -164,24 +164,25 @@ private extension NetworkEndpoint.Task.Multipart {
 }
 
 struct BasicAuthPlugin: PluginType {
-    let username: String?
-    let password: String?
     
-    //    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
-    //        var request = request
-    //        if let credentials = "\(username):\(password)".data(using: .utf8)?.base64EncodedString() {
-    //            let authValue = "Basic \(credentials)"
-    //            request.addValue(authValue, forHTTPHeaderField: "Authorization")
-    //        }
-    //        return request
-    //    }
+    public typealias PasswordClosure = () -> String?
+
+    public let passwordClosure: PasswordClosure
+    public typealias UsernameClosure = () -> String?
+
+    public let usernameClosure: UsernameClosure
+    
+    public init(passwordClosure: @escaping PasswordClosure, usernameClosure: @escaping UsernameClosure) {
+        self.passwordClosure = passwordClosure
+        self.usernameClosure = usernameClosure
+    }
     
     func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
         guard let target = target as? MoyaTarget, target.authorizationType == .basic else {
             return request
         }
         var request = request
-        guard let username, let password else {
+        guard let username = usernameClosure(), let password = passwordClosure() else {
             return request
         }
         
@@ -189,10 +190,7 @@ struct BasicAuthPlugin: PluginType {
             let authValue = "Basic \(credentials)"
             request.addValue(authValue, forHTTPHeaderField: "Authorization")
         }
-        //            if let credentials = "\(username):\(password)".data(using: .utf8)?.base64EncodedString() {
-        //                let authValue = "Basic \(credentials)"
-        //                request.addValue(authValue, forHTTPHeaderField: "Authorization")
-        //            }
+      
         return request
     }
 }

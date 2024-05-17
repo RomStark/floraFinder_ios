@@ -102,7 +102,28 @@ public extension NetworkEndpoint {
                 path: "users/plants/\(id)",
                 isAuthorizationRequired: true)
         }
+        
+        public static func getDisease(query: String = "") -> NetworkEndpoint {
+            NetworkEndpoint(
+                method: .get,
+                path: "disease/\(query)",
+                isAuthorizationRequired: false)
+        }
+        
+        public static func addDrugs(model: AddDrugDTO) -> NetworkEndpoint {
+            let data = try? asDictionary(model: model)
+            return NetworkEndpoint(
+                method: .post,
+                path: "users/drugs",
+                isAuthorizationRequired: true,
+                task: .formData(data ?? [:])
+            )
+        }
     }
+}
+
+public struct AddDrugDTO: Codable {
+    public var parentDrugId: String
 }
 
 public struct AddPlantDTO: Codable {

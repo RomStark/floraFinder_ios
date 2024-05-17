@@ -28,19 +28,17 @@ enum FindedDiseaseComposer {
         name: String
     ) -> UIViewController {
         let viewModel = DiseaseInfoViewModel(name: name, service: dependencies.userService, imageLoader: dependencies.imageLoader)
+        let viewController = DiseaseInfoViewController()
+
         viewModel.onComplete = {
             switch $0 {
-            
-//            case let .plantInfo(model):
-//                flowDependencies.plantInfoFlow(model)
-//            case .allPlants:
-//                flowDependencies.allPlantFlow()
+            case let .addDrug(text):
+                viewController.showTopHint(text: text)
             
             }
         }
 
         
-        let viewController = DiseaseInfoViewController()
 //        viewController.bind(to: viewModel).dispose()
         viewController.subscription = LifetimeSubscription { [unowned viewController] in
             viewController.bind(to: viewModel)

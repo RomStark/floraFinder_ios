@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "7aeda097-e907-4945-aec6-28b318ddf7f7___MD_Pow.JPG",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

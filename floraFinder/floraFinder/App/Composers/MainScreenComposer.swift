@@ -7,7 +7,7 @@
 
 import FunctionalNavigationFlowKit
 
-protocol MainScreenDependencies: ImageLoadingDependencies, UserPlantDetailDependencies, AllPlantsDependencies {
+protocol MainScreenDependencies: ImageLoadingDependencies, UserPlantDetailDependencies, AllPlantsDependencies, SettingsDependencies, UserDrugsDependencies {
     var mainService: MainService { get }
 }
 
@@ -17,12 +17,15 @@ struct MainScreenFlowDependencies {
 
     let allPlantFlow: ( @escaping () -> Void) -> ()
     let openCamera: () -> ()
+    let settingFlow: () -> ()
+    let userDrugsFlow: () -> ()
 }
 
 
 enum MainScreensComposer {
     static func compose(
         dependencies: MainScreenDependencies,
+        onLogout: @escaping Flow,
         flowDependencies: MainScreenFlowDependencies
     ) -> UIViewController {
         let viewModel = MainScreenViewModel(service: dependencies.mainService, imageLoader: dependencies.imageLoader)
@@ -38,6 +41,10 @@ enum MainScreensComposer {
                 viewController.showTopHint(text: text)
             case .diseaseOpen:
                 flowDependencies.openCamera()
+            case .logOut:
+                onLogout()
+            case .drugs:
+                flowDependencies.userDrugsFlow()
             }
         }
 

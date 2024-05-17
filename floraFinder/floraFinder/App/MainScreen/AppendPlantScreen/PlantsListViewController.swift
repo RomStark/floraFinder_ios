@@ -35,7 +35,6 @@ public final class PlantsListViewController: ViewController {
             button.rx.tap.bind(to: bindings.tapCamera)
         ]
     }
-
 }
 
 private extension PlantsListViewController {
@@ -142,9 +141,6 @@ private extension PlantsListViewController {
                 .topAnchor(50)
                 .horizontalAnchor(0)
                 .bottomAnchor(0)
-            
-            
-            
         }
     }
 }

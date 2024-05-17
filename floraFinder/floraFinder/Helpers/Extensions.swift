@@ -13,6 +13,51 @@ import CoreML
 import CoreImage
 import DeclarativeLayoutKit
 
+extension UIImage {
+    func pixelBuffer(width: Int, height: Int) -> CVPixelBuffer? {
+        var pixelBuffer: CVPixelBuffer?
+        let options: [String: Any] = [
+            kCVPixelBufferCGImageCompatibilityKey as String: true,
+            kCVPixelBufferCGBitmapContextCompatibilityKey as String: true
+        ]
+        let status = CVPixelBufferCreate(kCFAllocatorDefault, width, height, kCVPixelFormatType_32ARGB, options as CFDictionary, &pixelBuffer)
+        
+        guard status == kCVReturnSuccess else {
+            return nil
+        }
+        
+        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
+        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+        guard let context = CGContext(data: pixelData, width: width, height: height, bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!), space: rgbColorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue) else {
+            return nil
+        }
+        
+        context.translateBy(x: 0, y: CGFloat(height))
+        context.scaleBy(x: 1.0, y: -1.0)
+        
+        UIGraphicsPushContext(context)
+        self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        UIGraphicsPopContext()
+        
+        CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        let widthFloat = Float(width)
+        let heightFloat = Float(height)
+        for y in 0..<height {
+            for x in 0..<width {
+                let pixel = pixelData!.advanced(by: (y * CVPixelBufferGetBytesPerRow(pixelBuffer!)) + (x * 4)).assumingMemoryBound(to: Float.self)
+                let red = Float(pixel[2]) / 255.0
+                let green = Float(pixel[1]) / 255.0
+                let blue = Float(pixel[0]) / 255.0
+                pixel[0] = blue
+                pixel[1] = green
+                pixel[2] = red
+            }
+        }
+        return pixelBuffer
+    }
+}
+
 public final class ToastView: UIView {
     init(frame: CGRect, text: String) {
         super.init(frame: frame)

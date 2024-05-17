@@ -16,6 +16,8 @@ public protocol MainScreenViewControllerBindings {
     var plantsCells: Driver<[UserPlantSectionModel]> { get }
     var openAllPlantsList: Binder<Void> { get }
     var tapCamera: Binder<Void> { get }
+    var tapLogOut: Binder<Void> { get }
+    var tapDrugs: Binder<Void> { get }
 }
 
 public final class MainScreenViewController: ViewController {
@@ -23,19 +25,26 @@ public final class MainScreenViewController: ViewController {
     private weak var collection: UICollectionView!
     private weak var openAllPlantsList: Button!
     private weak var openDiseaseButton: Button!
+    private weak var logOutButton: LogOutButton!
+    private weak var drugsListButton: DrugsListButton!
+    
     
     public override func loadView() {
         view = mainView()
+        configureNavigationBarItems()
+        
     }
     
     public func bind(to bindings: MainScreenViewControllerBindings) -> Disposable {
         return [
             bindings.plantsCells.drive(collection.rx.items(dataSource: dataSource())),
             openAllPlantsList.rx.tap.bind(to: bindings.openAllPlantsList),
-            openDiseaseButton.rx.tap.bind(to: bindings.tapCamera)
+            openDiseaseButton.rx.tap.bind(to: bindings.tapCamera),
+            logOutButton.rxTap.bind(to: bindings.tapLogOut),
+            drugsListButton.rxTap.bind(to: bindings.tapDrugs)
         ]
     }
-
+    
 }
 
 private extension MainScreenViewController {
@@ -70,7 +79,7 @@ private extension MainScreenViewController {
                 layoutSize: groupSize,
                 subitems: [item]
             )
-           
+            
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 12
             section.contentInsets = NSDirectionalEdgeInsets(
@@ -81,6 +90,22 @@ private extension MainScreenViewController {
             )
             return section
         }
+    }
+    
+    private func configureNavigationBarItems() {
+        
+        let logOutButton = LogOutButton()
+            .assign(to: &logOutButton)
+            .asBarButtonItem()
+        
+        let drugsListButton = DrugsListButton()
+            .assign(to: &drugsListButton)
+            .asBarButtonItem()
+        
+        
+        navigationItem.leftBarButtonItem = drugsListButton
+        navigationItem.rightBarButtonItem = logOutButton
+//        navigationItem.rightBarButtonItems = [notificationsButton, promosButton]
     }
     
     func mainView() -> UIView {
@@ -95,35 +120,24 @@ private extension MainScreenViewController {
         return mainView.add {
             UIStackView()
                 .append {
-                    UIStackView()
-                        .axis(.horizontal)
-                        .spacing(20)
-                        .append({
-//                            UIView()
-//                                .sizeAnchor(20)
+//                    UIStackView()
+//                        .axis(.horizontal)
+//                        .spacing(20)
+//                        .append({
 //
 //                            Button()
-////                                .backgroundColor(.red)
-////                                .assign(to: &openAllPlantsList)
-////                                .image(UIImage(systemName: "plus.circle"))
-//                                .sizeAnchor(40)
-//                                .activate()
-                            
-                            
-                            UILabel()
-                                .assign(to: &label)
-                                .set(fontStyle: .color(.black), .center)
-                                .styledText("Мой Сад")
-                            
-//                            Button()
-////                                .backgroundColor(.red)
-//                                .assign(to: &openAllPlantsList)
-//                                .image(UIImage(systemName: "plus.circle"))
-//                                .sizeAnchor(40)
-//                                .activate()
-//                            UIView()
-//                                .sizeAnchor(20)
-                        })
+//                                .assign(to: &settingsButton)
+//                                .onTap {
+//                                    print(1)
+//                                }
+//                                .image(UIImage(systemName: "gearshape"))
+//
+//                            UILabel()
+//                                .assign(to: &label)
+//                                .set(fontStyle: .color(.black), .center)
+//                                .styledText("Мой Сад")
+//
+//                        })
                     
                     Button()
                         .assign(to: &openDiseaseButton)
@@ -134,19 +148,19 @@ private extension MainScreenViewController {
                                 .text("Открыть камеру")
                                 .centerXAnchor()
                                 .verticalAnchor(0)
-        //                        .edgesAnchors()
+                            //                        .edgesAnchors()
                         })
                         .set(fontStyle: .color(.black))
                         .cornerRadius(12)
                         .heightAnchor(42)
                         .activate()
                     
-                        
+                    
                     collectionView
                 }
                 .spacing(30)
                 .axis(.vertical)
-                .topAnchor(50)
+                .topAnchor(10.from(mainView.safeAreaLayoutGuide.topAnchor))
                 .horizontalAnchor(0)
                 .bottomAnchor(0)
             
@@ -158,5 +172,77 @@ private extension MainScreenViewController {
                 .horizontalAnchor(120)
                 .bottomAnchor(120.from(mainView.safeAreaLayoutGuide.bottomAnchor))
         }
+    }
+}
+
+public final class LogOutButton: UIView {
+    private weak var button: UIButton!
+
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        add({
+            UIView()
+                .backgroundColor(.mainBackGround)
+                .cornerRadius(16)
+                .add({
+                    UIImageView()
+                        .image(UIImage(systemName: "rectangle.portrait.and.arrow.right"))
+                        .contentMode(.center)
+                        .clipsToBounds(true)
+                        .sizeAnchor(20)
+                        .edgesAnchors()
+                })
+                .sizeAnchor(32)
+                .edgesAnchors()
+            
+            UIButton()
+                .assign(to: &button)
+                .edgesAnchors()
+        })
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public var rxTap: ControlEvent<Void> {
+        button.rx.tap
+    }
+}
+
+public final class DrugsListButton: UIView {
+    private weak var button: UIButton!
+
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        add({
+            UIView()
+                .backgroundColor(.mainBackGround)
+                .cornerRadius(16)
+                .add({
+                    UIImageView()
+                        .image(UIImage(systemName: "bag"))
+                        .contentMode(.center)
+                        .clipsToBounds(true)
+                        .sizeAnchor(20)
+                        .edgesAnchors()
+                })
+                .sizeAnchor(32)
+                .edgesAnchors()
+            
+            UIButton()
+                .assign(to: &button)
+                .edgesAnchors()
+        })
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public var rxTap: ControlEvent<Void> {
+        button.rx.tap
     }
 }
